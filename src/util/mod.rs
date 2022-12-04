@@ -41,9 +41,42 @@ fn get_all_ipv6(data: &str) -> Vec<IpAddr> {
         .collect::<Vec<_>>()
 }
 
+pub fn get_distinct_ips(ips: Vec<IpAddr>) -> Vec<IpAddr> {
+    let mut distinct_ips = vec![];
+    for ip in ips.into_iter() {
+        if !distinct_ips.contains(&ip) {
+            distinct_ips.push(ip);
+        }
+    }
+    distinct_ips
+}
+
 #[cfg(test)]
 mod test {
     use super::*;
+
+    #[test]
+    fn test_get_distinct_ips() {
+        let tests = vec![(
+            vec![
+                IpAddr::V4(Ipv4Addr::new(127, 0, 0, 1)),
+                IpAddr::V4(Ipv4Addr::new(127, 0, 0, 1)),
+                IpAddr::V4(Ipv4Addr::new(8, 8, 8, 8)),
+                IpAddr::V4(Ipv4Addr::new(10, 100, 27, 43)),
+                IpAddr::V4(Ipv4Addr::new(10, 100, 27, 43)),
+            ],
+            vec![
+                IpAddr::V4(Ipv4Addr::new(127, 0, 0, 1)),
+                IpAddr::V4(Ipv4Addr::new(8, 8, 8, 8)),
+                IpAddr::V4(Ipv4Addr::new(10, 100, 27, 43)),
+            ],
+        )];
+
+        for test in tests {
+            let actual = get_distinct_ips(test.0);
+            assert_eq!(test.1, actual);
+        }
+    }
 
     #[test]
     fn test_get_all_ipv4() {
