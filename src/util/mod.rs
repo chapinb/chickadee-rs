@@ -3,8 +3,8 @@ use regex::Regex;
 use std::net::{IpAddr, Ipv4Addr, Ipv6Addr};
 
 pub fn get_all_ips(data: &str) -> Vec<IpAddr> {
-    let mut all_ips: Vec<IpAddr> = get_all_ipv4(&data);
-    all_ips.append(&mut get_all_ipv6(&data));
+    let mut all_ips: Vec<IpAddr> = get_all_ipv4(data);
+    all_ips.append(&mut get_all_ipv6(data));
     all_ips
 }
 
