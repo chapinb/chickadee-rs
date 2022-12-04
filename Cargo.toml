@@ -1,0 +1,16 @@
+[package]
+name = "chickadee"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "chickadee"
+path = "src/bin/main.rs"
+
+[lib]
+name = "libchickadee"
+
+
+[dependencies]
+lazy_static = "1.4.0"
+regex = "1.7.0"
