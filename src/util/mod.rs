@@ -2,6 +2,23 @@ use lazy_static::lazy_static;
 use regex::Regex;
 use std::net::{IpAddr, Ipv4Addr, Ipv6Addr};
 
+pub fn get_distinct_ips(ips: Vec<IpAddr>) -> Vec<IpAddr> {
+    let mut distinct_ips = vec![];
+    for ip in ips.into_iter() {
+        if !distinct_ips.contains(&ip) {
+            distinct_ips.push(ip);
+        }
+    }
+    distinct_ips
+}
+
+pub fn get_routable_ips(ips: Vec<IpAddr>) -> Vec<IpAddr> {
+    // TODO Filter out common BOGON
+    ips.into_iter()
+        .filter(|x| !x.is_unspecified() && !x.is_multicast() && !x.is_loopback())
+        .collect()
+}
+
 pub fn get_all_ips(data: &str) -> Vec<IpAddr> {
     let mut all_ips: Vec<IpAddr> = get_all_ipv4(data);
     all_ips.append(&mut get_all_ipv6(data));
@@ -41,19 +58,27 @@ fn get_all_ipv6(data: &str) -> Vec<IpAddr> {
         .collect::<Vec<_>>()
 }
 
-pub fn get_distinct_ips(ips: Vec<IpAddr>) -> Vec<IpAddr> {
-    let mut distinct_ips = vec![];
-    for ip in ips.into_iter() {
-        if !distinct_ips.contains(&ip) {
-            distinct_ips.push(ip);
-        }
-    }
-    distinct_ips
-}
-
 #[cfg(test)]
 mod test {
     use super::*;
+
+    #[test]
+    fn test_get_routable_ips() {
+        let tests = vec![(
+            vec![
+                IpAddr::V4(Ipv4Addr::new(127, 0, 0, 1)),
+                IpAddr::V4(Ipv4Addr::new(8, 8, 8, 8)),
+                IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0)),
+                IpAddr::V6(Ipv6Addr::new(0xff00, 0, 0, 0, 0, 0, 0, 0)),
+            ],
+            vec![IpAddr::V4(Ipv4Addr::new(8, 8, 8, 8))],
+        )];
+
+        for test in tests {
+            let actual = get_routable_ips(test.0);
+            assert_eq!(test.1, actual);
+        }
+    }
 
     #[test]
     fn test_get_distinct_ips() {
