@@ -20,7 +20,7 @@ pub struct IpApiRecord {
     pub zip: String,
     pub lat: f32,
     pub lon: f32,
-    pub timezeon: String,
+    pub timezone: String,
     pub offset: u32,
     pub currency: String,
     pub isp: String,
