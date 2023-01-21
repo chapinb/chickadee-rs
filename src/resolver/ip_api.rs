@@ -39,7 +39,7 @@ pub struct Resolver {
 
 impl Resolver {
     fn new(ips: Vec<IpAddr>, columns: Vec<String>) -> Resolver {
-        return Resolver {ips, columns};
+        return Resolver { ips, columns };
     }
 
     fn check_columns(requested_columns: Vec<String>) -> Vec<String> {
