@@ -23,6 +23,5 @@ jobs:
             ~/.cargo/git/db/
             target/
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-      - run: cargo install cargo-checkmate
+      - run: cargo install --force cargo-checkmate
       - run: cargo-checkmate
-
