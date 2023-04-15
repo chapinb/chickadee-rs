@@ -17,11 +17,11 @@ pub struct IpApiRecord {
     pub query: Option<String>,
     pub status: Option<String>,
     pub continent: Option<String>,
-    pub continent_code: Option<String>,
+    pub continentCode: Option<String>,
     pub country: Option<String>,
-    pub country_code: Option<String>,
+    pub countryCode: Option<String>,
     pub region: Option<String>,
-    pub region_name: Option<String>,
+    pub regionName: Option<String>,
     pub city: Option<String>,
     pub district: Option<String>,
     pub zip: Option<String>,
@@ -32,7 +32,7 @@ pub struct IpApiRecord {
     pub currency: Option<String>,
     pub isp: Option<String>,
     pub org: Option<String>,
-    pub asn: Option<String>,
+    pub asn: Option<String>,  // Actually is `as` but that is reserved in rust. We need to handle this with serde somehow
     pub asname: Option<String>,
     pub mobile: Option<bool>,
     pub proxy: Option<bool>,
@@ -48,8 +48,8 @@ impl Resolver {
         // If provided columns, use those. Otherwise, use all.
         match columns {
             Some(columns) => {
-                let columns = Resolver::check_columns(columns);
-                Resolver { columns }
+                let allowed_columns = Resolver::check_columns(columns);
+                Resolver { columns: allowed_columns }
             },
             None => Resolver {
                 columns: Resolver::allowed_columns(),
@@ -70,11 +70,11 @@ impl Resolver {
             String::from("query"),
             String::from("status"),
             String::from("continent"),
-            String::from("continent_code"),
+            String::from("continentCode"),
             String::from("country"),
-            String::from("country_code"),
+            String::from("countryCode"),
             String::from("region"),
-            String::from("region_name"),
+            String::from("regionName"),
             String::from("city"),
             String::from("district"),
             String::from("zip"),
@@ -96,7 +96,20 @@ impl Resolver {
     pub fn resolve(&self, ips: Vec<IpAddr>) -> Result<IpApiRecords> {
         let mut all_responses = IpApiRecords::new();
         for ip_addr in ips {
-            let url = format!("http://ip-api.com/json/{}", ip_addr);
+            let mut url = format!("http://ip-api.com/json/{}", ip_addr);
+
+            if self.columns != Resolver::allowed_columns() {
+                // Add fields to the URL, if we don't have all fields set
+                let mut fields = "".to_string();
+                for column in self.columns.clone() {
+                    fields.push_str(&format!("{}", column));
+                    fields.push_str(",");
+                }
+                url.push_str(&format!("?fields={}", fields.trim_end_matches(',')));
+            }
+
+            println!("{}", url);
+
             let resp = reqwest::blocking::get(url)?.error_for_status()?;
             match resp.json::<IpApiRecord>() {
                 Ok(record) => {
