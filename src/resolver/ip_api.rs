@@ -133,8 +133,7 @@ impl Resolver {
                 // Add fields to the URL, if we don't have all fields set
                 let mut fields = "".to_string();
                 for column in self.columns.clone() {
-                    fields.push_str(&format!("{}", column));
-                    fields.push_str(",");
+                    fields.push_str(&format!("{},", column));
                 }
                 url.push_str(&format!("?fields={}", fields.trim_end_matches(',')));
             }
