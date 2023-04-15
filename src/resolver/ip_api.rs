@@ -1,6 +1,6 @@
 use anyhow::Result;
-use std::net::IpAddr;
 use serde::{Deserialize, Serialize};
+use std::net::IpAddr;
 
 #[derive(Deserialize, Serialize)]
 pub struct IpApiRecords {
@@ -8,7 +8,7 @@ pub struct IpApiRecords {
 }
 impl IpApiRecords {
     pub fn new() -> IpApiRecords {
-        IpApiRecords{records: vec![]}
+        IpApiRecords { records: vec![] }
     }
 }
 
@@ -46,13 +46,11 @@ pub struct Resolver {
 impl Resolver {
     pub fn new(columns: Option<Vec<String>>) -> Resolver {
         // If provided columns, use those. Otherwise, use all.
-        match  columns  {
-            Some(columns) => {
-                Resolver {columns}
+        match columns {
+            Some(columns) => Resolver { columns },
+            None => Resolver {
+                columns: Resolver::allowed_columns(),
             },
-            None => {
-                Resolver {columns: Resolver::allowed_columns()}
-            }
         }
     }
 
@@ -100,7 +98,7 @@ impl Resolver {
             match resp.json::<IpApiRecord>() {
                 Ok(record) => {
                     all_responses.records.push(record);
-                },
+                }
                 Err(e) => {
                     eprintln!("Error resolving IP: {} {}", ip_addr, e);
                 }
@@ -116,10 +114,8 @@ mod test {
     use std::net::Ipv4Addr;
 
     #[test]
-    fn test_resolve_single_ip(){
-        let resolver = Resolver::new(
-            Some(vec![String::from("query"), String::from("city")])
-        );
+    fn test_resolve_single_ip() {
+        let resolver = Resolver::new(Some(vec![String::from("query"), String::from("city")]));
         let ips = vec![IpAddr::V4(Ipv4Addr::new(1, 1, 1, 1))];
         let res = resolver.resolve(ips);
 

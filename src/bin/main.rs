@@ -1,11 +1,15 @@
-use std::{net::IpAddr};
-use serde_json;
 use clap::{self, Parser};
 use libchickadee::resolver::ip_api::Resolver;
+use serde_json;
+use std::net::IpAddr;
 
 fn resolve_ip_addresses(ip_addresses: Vec<IpAddr>) -> Vec<String> {
     let ip_records = Resolver::new(None).resolve(ip_addresses).unwrap();
-    ip_records.records.iter().map(|record| serde_json::to_string(record).unwrap()).collect()
+    ip_records
+        .records
+        .iter()
+        .map(|record| serde_json::to_string(record).unwrap())
+        .collect()
 }
 
 // Create new struct for Clap to parse CLI arguments
@@ -16,7 +20,6 @@ struct Cli {
     #[clap(long)]
     ip: IpAddr,
 }
-
 
 fn main() {
     // Parse CLI arguments
@@ -38,9 +41,7 @@ mod tests {
 
     #[test]
     fn test_resolve_ip_addresses() {
-        let ip_addresses = vec![
-            IpAddr::V4(Ipv4Addr::new(1, 1, 1, 1)),
-        ];
+        let ip_addresses = vec![IpAddr::V4(Ipv4Addr::new(1, 1, 1, 1))];
         let ip_records = resolve_ip_addresses(ip_addresses);
 
         assert_eq!(1, ip_records.len());
