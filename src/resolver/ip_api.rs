@@ -1,8 +1,8 @@
 use anyhow::Result;
 use std::net::IpAddr;
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
-// TODO Make serializable with serde
+#[derive(Deserialize, Serialize)]
 pub struct IpApiRecords {
     pub records: Vec<IpApiRecord>,
 }
@@ -12,7 +12,7 @@ impl IpApiRecords {
     }
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Serialize)]
 pub struct IpApiRecord {
     pub query: Option<String>,
     pub status: Option<String>,
