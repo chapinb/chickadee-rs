@@ -47,7 +47,7 @@ pub struct Resolver {
 
 impl Resolver {
     fn new(columns: Vec<String>) -> Resolver {
-        return Resolver { columns };
+        Resolver { columns }
     }
 
     fn check_columns(requested_columns: Vec<String>) -> Vec<String> {
