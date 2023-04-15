@@ -138,8 +138,6 @@ impl Resolver {
                 url.push_str(&format!("?fields={}", fields.trim_end_matches(',')));
             }
 
-            println!("{}", url);
-
             let resp = reqwest::blocking::get(url)?.error_for_status()?;
 
             match resp.json::<Value>() {
