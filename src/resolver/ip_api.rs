@@ -1,45 +1,53 @@
+use anyhow::{Result, anyhow};
 use reqwest::Client;
-use std::net::IpAddr;
+use std::{net::IpAddr, collections::HashMap};
+use serde_json;
+use serde::Deserialize;
 
 // TODO Make serializable with serde
 pub struct IpApiRecords {
     pub records: Vec<IpApiRecord>,
 }
+impl IpApiRecords {
+    pub fn new() -> IpApiRecords {
+        return IpApiRecords{records: vec![]};
+    }
+}
 
+#[derive(Deserialize)]
 pub struct IpApiRecord {
-    pub query: String,
-    pub status: String,
-    pub continent: String,
-    pub continent_code: String,
-    pub country: String,
-    pub country_code: String,
-    pub region: String,
-    pub region_name: String,
-    pub city: String,
-    pub district: String,
-    pub zip: String,
-    pub lat: f32,
-    pub lon: f32,
-    pub timezone: String,
-    pub offset: u32,
-    pub currency: String,
-    pub isp: String,
-    pub org: String,
-    pub asn: String,
-    pub asname: String,
-    pub mobile: bool,
-    pub proxy: bool,
-    pub hosting: bool,
+    pub query: Option<String>,
+    pub status: Option<String>,
+    pub continent: Option<String>,
+    pub continent_code: Option<String>,
+    pub country: Option<String>,
+    pub country_code: Option<String>,
+    pub region: Option<String>,
+    pub region_name: Option<String>,
+    pub city: Option<String>,
+    pub district: Option<String>,
+    pub zip: Option<String>,
+    pub lat: Option<f32>,
+    pub lon: Option<f32>,
+    pub timezone: Option<String>,
+    pub offset: Option<u32>,
+    pub currency: Option<String>,
+    pub isp: Option<String>,
+    pub org: Option<String>,
+    pub asn: Option<String>,
+    pub asname: Option<String>,
+    pub mobile: Option<bool>,
+    pub proxy: Option<bool>,
+    pub hosting: Option<bool>,
 }
 
 pub struct Resolver {
-    pub ips: Vec<IpAddr>,
     pub columns: Vec<String>,
 }
 
 impl Resolver {
-    fn new(ips: Vec<IpAddr>, columns: Vec<String>) -> Resolver {
-        return Resolver { ips, columns };
+    fn new(columns: Vec<String>) -> Resolver {
+        return Resolver { columns };
     }
 
     fn check_columns(requested_columns: Vec<String>) -> Vec<String> {
@@ -78,12 +86,44 @@ impl Resolver {
             String::from("hosting"),
         ];
     }
+
+    fn resolve(&self, ips: Vec<IpAddr>) -> Result<IpApiRecords> {
+        let mut all_responses = IpApiRecords::new();
+        for ip_addr in ips {
+            let url = format!("http://ip-api.com/json/{}", ip_addr);
+            let resp = reqwest::blocking::get(url)?.error_for_status()?;
+            match resp.json::<IpApiRecord>() {
+                Ok(record) => {
+                    all_responses.records.push(record);
+                },
+                Err(e) => {
+                    eprintln!("Error resolving IP: {} {}", ip_addr, e);
+                }
+            }
+        }
+        Ok(all_responses)
+    }
 }
 
 #[cfg(test)]
 mod test {
     use super::*;
     use std::net::Ipv4Addr;
+
+    #[test]
+    fn test_resolve_single_ip(){
+        let resolver = Resolver::new(
+            vec![String::from("query"), String::from("city")]
+        );
+        let ips = vec![IpAddr::V4(Ipv4Addr::new(1, 1, 1, 1))];
+        let res = resolver.resolve(ips);
+
+        assert!(res.is_ok());
+
+        let resolved = res.unwrap();
+
+        assert_eq!(1, resolved.records.len());
+    }
 
     #[test]
     fn test_cols_allowed() {
