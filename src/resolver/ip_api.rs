@@ -1,7 +1,5 @@
-use anyhow::{Result, anyhow};
-use reqwest::Client;
-use std::{net::IpAddr, collections::HashMap};
-use serde_json;
+use anyhow::Result;
+use std::net::IpAddr;
 use serde::Deserialize;
 
 // TODO Make serializable with serde
