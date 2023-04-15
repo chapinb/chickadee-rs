@@ -44,8 +44,16 @@ pub struct Resolver {
 }
 
 impl Resolver {
-    fn new(columns: Vec<String>) -> Resolver {
-        Resolver { columns }
+    pub fn new(columns: Option<Vec<String>>) -> Resolver {
+        // If provided columns, use those. Otherwise, use all.
+        match  columns  {
+            Some(columns) => {
+                Resolver {columns}
+            },
+            None => {
+                Resolver {columns: Resolver::allowed_columns()}
+            }
+        }
     }
 
     fn check_columns(requested_columns: Vec<String>) -> Vec<String> {
@@ -84,7 +92,7 @@ impl Resolver {
         ]
     }
 
-    fn resolve(&self, ips: Vec<IpAddr>) -> Result<IpApiRecords> {
+    pub fn resolve(&self, ips: Vec<IpAddr>) -> Result<IpApiRecords> {
         let mut all_responses = IpApiRecords::new();
         for ip_addr in ips {
             let url = format!("http://ip-api.com/json/{}", ip_addr);
@@ -110,7 +118,7 @@ mod test {
     #[test]
     fn test_resolve_single_ip(){
         let resolver = Resolver::new(
-            vec![String::from("query"), String::from("city")]
+            Some(vec![String::from("query"), String::from("city")])
         );
         let ips = vec![IpAddr::V4(Ipv4Addr::new(1, 1, 1, 1))];
         let res = resolver.resolve(ips);
