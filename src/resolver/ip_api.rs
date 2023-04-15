@@ -1,4 +1,5 @@
 use anyhow::Result;
+use serde_json::Value;
 use serde::{Deserialize, Serialize};
 use std::net::IpAddr;
 
@@ -17,11 +18,11 @@ pub struct IpApiRecord {
     pub query: Option<String>,
     pub status: Option<String>,
     pub continent: Option<String>,
-    pub continentCode: Option<String>,
+    pub continent_code: Option<String>,
     pub country: Option<String>,
-    pub countryCode: Option<String>,
+    pub country_code: Option<String>,
     pub region: Option<String>,
-    pub regionName: Option<String>,
+    pub region_name: Option<String>,
     pub city: Option<String>,
     pub district: Option<String>,
     pub zip: Option<String>,
@@ -32,11 +33,41 @@ pub struct IpApiRecord {
     pub currency: Option<String>,
     pub isp: Option<String>,
     pub org: Option<String>,
-    pub asn: Option<String>,  // Actually is `as` but that is reserved in rust. We need to handle this with serde somehow
+    pub asn: Option<String>,
     pub asname: Option<String>,
     pub mobile: Option<bool>,
     pub proxy: Option<bool>,
     pub hosting: Option<bool>,
+}
+
+impl IpApiRecord {
+    fn from_value(value: &Value) -> IpApiRecord {
+        IpApiRecord {
+            query: value.get("query").and_then(|v| v.as_str()).map(String::from),
+            status: value.get("status").and_then(|v| v.as_str()).map(String::from),
+            continent: value.get("continent").and_then(|v| v.as_str()).map(String::from),
+            continent_code: value.get("continentCode").and_then(|v| v.as_str()).map(String::from),
+            country: value.get("country").and_then(|v| v.as_str()).map(String::from),
+            country_code: value.get("countryCode").and_then(|v| v.as_str()).map(String::from),
+            region: value.get("region").and_then(|v| v.as_str()).map(String::from),
+            region_name: value.get("regionName").and_then(|v| v.as_str()).map(String::from),
+            city: value.get("city").and_then(|v| v.as_str()).map(String::from),
+            district: value.get("district").and_then(|v| v.as_str()).map(String::from),
+            zip: value.get("zip").and_then(|v| v.as_str()).map(String::from),
+            lat: value.get("lat").and_then(|v| v.as_f64()).map(|v| v as f32),
+            lon: value.get("lon").and_then(|v| v.as_f64()).map(|v| v as f32),
+            timezone: value.get("timezone").and_then(|v| v.as_str()).map(String::from),
+            offset: value.get("offset").and_then(|v| v.as_u64()).map(|v| v as u32),
+            currency: value.get("currency").and_then(|v| v.as_str()).map(String::from),
+            isp: value.get("isp").and_then(|v| v.as_str()).map(String::from),
+            org: value.get("org").and_then(|v| v.as_str()).map(String::from),
+            asn: value.get("as").and_then(|v| v.as_str()).map(String::from),
+            asname: value.get("asname").and_then(|v| v.as_str()).map(String::from),
+            mobile: value.get("mobile").and_then(|v| v.as_bool()),
+            proxy: value.get("proxy").and_then(|v| v.as_bool()),
+            hosting: value.get("hosting").and_then(|v| v.as_bool()),
+        }
+    }
 }
 
 pub struct Resolver {
@@ -85,7 +116,7 @@ impl Resolver {
             String::from("currency"),
             String::from("isp"),
             String::from("org"),
-            String::from("asn"),
+            String::from("as"),
             String::from("asname"),
             String::from("mobile"),
             String::from("proxy"),
@@ -111,8 +142,10 @@ impl Resolver {
             println!("{}", url);
 
             let resp = reqwest::blocking::get(url)?.error_for_status()?;
-            match resp.json::<IpApiRecord>() {
+
+            match resp.json::<Value>() {
                 Ok(record) => {
+                    let record = IpApiRecord::from_value(&record);
                     all_responses.records.push(record);
                 }
                 Err(e) => {
