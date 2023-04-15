@@ -1,6 +1,5 @@
 use clap::{self, Parser};
 use libchickadee::resolver::ip_api::Resolver;
-use serde_json;
 use std::net::IpAddr;
 
 fn resolve_ip_addresses(ip_addresses: Vec<IpAddr>) -> Vec<String> {
