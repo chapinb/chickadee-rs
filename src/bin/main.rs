@@ -29,7 +29,11 @@ fn main() {
     let cli = Cli::parse();
 
     // Resolve IP addresses
-    let ip_records = resolve_ip_addresses(vec![cli.ip],  cli.columns.map(|s| s.split(',').map(|s| s.to_string()).collect()));
+    let ip_records = resolve_ip_addresses(
+        vec![cli.ip],
+        cli.columns
+            .map(|s| s.split(',').map(|s| s.to_string()).collect()),
+    );
 
     // Print IP records
     for ip_record in ip_records {

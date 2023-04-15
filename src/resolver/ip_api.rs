@@ -1,6 +1,6 @@
 use anyhow::Result;
-use serde_json::Value;
 use serde::{Deserialize, Serialize};
+use serde_json::Value;
 use std::net::IpAddr;
 
 #[derive(Deserialize, Serialize, Default)]
@@ -43,26 +43,65 @@ pub struct IpApiRecord {
 impl IpApiRecord {
     fn from_value(value: &Value) -> IpApiRecord {
         IpApiRecord {
-            query: value.get("query").and_then(|v| v.as_str()).map(String::from),
-            status: value.get("status").and_then(|v| v.as_str()).map(String::from),
-            continent: value.get("continent").and_then(|v| v.as_str()).map(String::from),
-            continent_code: value.get("continentCode").and_then(|v| v.as_str()).map(String::from),
-            country: value.get("country").and_then(|v| v.as_str()).map(String::from),
-            country_code: value.get("countryCode").and_then(|v| v.as_str()).map(String::from),
-            region: value.get("region").and_then(|v| v.as_str()).map(String::from),
-            region_name: value.get("regionName").and_then(|v| v.as_str()).map(String::from),
+            query: value
+                .get("query")
+                .and_then(|v| v.as_str())
+                .map(String::from),
+            status: value
+                .get("status")
+                .and_then(|v| v.as_str())
+                .map(String::from),
+            continent: value
+                .get("continent")
+                .and_then(|v| v.as_str())
+                .map(String::from),
+            continent_code: value
+                .get("continentCode")
+                .and_then(|v| v.as_str())
+                .map(String::from),
+            country: value
+                .get("country")
+                .and_then(|v| v.as_str())
+                .map(String::from),
+            country_code: value
+                .get("countryCode")
+                .and_then(|v| v.as_str())
+                .map(String::from),
+            region: value
+                .get("region")
+                .and_then(|v| v.as_str())
+                .map(String::from),
+            region_name: value
+                .get("regionName")
+                .and_then(|v| v.as_str())
+                .map(String::from),
             city: value.get("city").and_then(|v| v.as_str()).map(String::from),
-            district: value.get("district").and_then(|v| v.as_str()).map(String::from),
+            district: value
+                .get("district")
+                .and_then(|v| v.as_str())
+                .map(String::from),
             zip: value.get("zip").and_then(|v| v.as_str()).map(String::from),
             lat: value.get("lat").and_then(|v| v.as_f64()).map(|v| v as f32),
             lon: value.get("lon").and_then(|v| v.as_f64()).map(|v| v as f32),
-            timezone: value.get("timezone").and_then(|v| v.as_str()).map(String::from),
-            offset: value.get("offset").and_then(|v| v.as_u64()).map(|v| v as u32),
-            currency: value.get("currency").and_then(|v| v.as_str()).map(String::from),
+            timezone: value
+                .get("timezone")
+                .and_then(|v| v.as_str())
+                .map(String::from),
+            offset: value
+                .get("offset")
+                .and_then(|v| v.as_u64())
+                .map(|v| v as u32),
+            currency: value
+                .get("currency")
+                .and_then(|v| v.as_str())
+                .map(String::from),
             isp: value.get("isp").and_then(|v| v.as_str()).map(String::from),
             org: value.get("org").and_then(|v| v.as_str()).map(String::from),
             asn: value.get("as").and_then(|v| v.as_str()).map(String::from),
-            asname: value.get("asname").and_then(|v| v.as_str()).map(String::from),
+            asname: value
+                .get("asname")
+                .and_then(|v| v.as_str())
+                .map(String::from),
             mobile: value.get("mobile").and_then(|v| v.as_bool()),
             proxy: value.get("proxy").and_then(|v| v.as_bool()),
             hosting: value.get("hosting").and_then(|v| v.as_bool()),
@@ -80,8 +119,10 @@ impl Resolver {
         match columns {
             Some(columns) => {
                 let allowed_columns = Resolver::check_columns(columns);
-                Resolver { columns: allowed_columns }
-            },
+                Resolver {
+                    columns: allowed_columns,
+                }
+            }
             None => Resolver {
                 columns: Resolver::allowed_columns(),
             },
