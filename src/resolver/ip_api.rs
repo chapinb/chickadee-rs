@@ -60,7 +60,7 @@ impl Resolver {
     }
 
     fn allowed_columns() -> Vec<String> {
-        return vec![
+        vec![
             String::from("query"),
             String::from("status"),
             String::from("continent"),
@@ -84,7 +84,7 @@ impl Resolver {
             String::from("mobile"),
             String::from("proxy"),
             String::from("hosting"),
-        ];
+        ]
     }
 
     fn resolve(&self, ips: Vec<IpAddr>) -> Result<IpApiRecords> {
