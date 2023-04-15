@@ -47,7 +47,10 @@ impl Resolver {
     pub fn new(columns: Option<Vec<String>>) -> Resolver {
         // If provided columns, use those. Otherwise, use all.
         match columns {
-            Some(columns) => Resolver { columns },
+            Some(columns) => {
+                let columns = Resolver::check_columns(columns);
+                Resolver { columns }
+            },
             None => Resolver {
                 columns: Resolver::allowed_columns(),
             },
