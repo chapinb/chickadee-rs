@@ -10,7 +10,7 @@ pub struct IpApiRecords {
 }
 impl IpApiRecords {
     pub fn new() -> IpApiRecords {
-        return IpApiRecords{records: vec![]};
+        IpApiRecords{records: vec![]}
     }
 }
 
