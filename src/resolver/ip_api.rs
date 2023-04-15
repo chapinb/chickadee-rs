@@ -52,11 +52,10 @@ impl Resolver {
 
     fn check_columns(requested_columns: Vec<String>) -> Vec<String> {
         let allowed = Resolver::allowed_columns();
-        let selected = requested_columns
+        requested_columns
             .into_iter()
             .filter(|column| allowed.contains(column))
-            .collect();
-        return selected;
+            .collect()
     }
 
     fn allowed_columns() -> Vec<String> {
