@@ -40,7 +40,10 @@ fn print_records(ip_records: Vec<String>, columns: Option<Vec<String>>) {
                     }
                 }
                 // Print the filtered record
-                println!("{}", serde_json::to_string(&new_record).unwrap());
+                match serde_json::to_string(&new_record) {
+                    Ok(record) => println!("{}", record),
+                    Err(e) => eprintln!("Unable to display record: {}", e),
+                }
             } else {
                 // Print an error to stderr if we can't parse the record
                 eprintln!("Error parsing JSON object: {}", ip_record);
