@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<bom xmlns="http://cyclonedx.org/schema/bom/1.3" serialNumber="urn:uuid:2c941b14-4756-463a-8470-1b560696df12" version="1">
+<bom xmlns="http://cyclonedx.org/schema/bom/1.3" serialNumber="urn:uuid:69404076-8cac-4970-903a-6627da96be69" version="1">
   <metadata>
-    <timestamp>2023-04-23T17:54:59.459674158Z</timestamp>
+    <timestamp>2023-04-23T17:57:26.963844831Z</timestamp>
     <tools>
       <tool>
         <vendor>CycloneDX</vendor>
@@ -35,15 +35,15 @@
         </reference>
       </externalReferences>
     </component>
-    <component type="library" bom-ref="pkg:cargo/aho-corasick@0.7.20">
+    <component type="library" bom-ref="pkg:cargo/aho-corasick@1.0.1">
       <name>aho-corasick</name>
-      <version>0.7.20</version>
+      <version>1.0.1</version>
       <description>Fast multiple substring searching.</description>
       <scope>required</scope>
       <licenses>
         <expression>Unlicense OR MIT</expression>
       </licenses>
-      <purl>pkg:cargo/aho-corasick@0.7.20</purl>
+      <purl>pkg:cargo/aho-corasick@1.0.1</purl>
       <externalReferences>
         <reference type="website">
           <url>https://github.com/BurntSushi/aho-corasick</url>
@@ -311,15 +311,15 @@
         </reference>
       </externalReferences>
     </component>
-    <component type="library" bom-ref="pkg:cargo/bumpalo@3.12.0">
+    <component type="library" bom-ref="pkg:cargo/bumpalo@3.12.1">
       <name>bumpalo</name>
-      <version>3.12.0</version>
+      <version>3.12.1</version>
       <description>A fast bump allocation arena for Rust.</description>
       <scope>required</scope>
       <licenses>
         <expression>MIT OR Apache-2.0</expression>
       </licenses>
-      <purl>pkg:cargo/bumpalo@3.12.0</purl>
+      <purl>pkg:cargo/bumpalo@3.12.1</purl>
       <externalReferences>
         <reference type="documentation">
           <url>https://docs.rs/bumpalo</url>
@@ -386,30 +386,30 @@
         </reference>
       </externalReferences>
     </component>
-    <component type="library" bom-ref="pkg:cargo/clap@4.2.2">
+    <component type="library" bom-ref="pkg:cargo/clap@4.2.4">
       <name>clap</name>
-      <version>4.2.2</version>
+      <version>4.2.4</version>
       <description>A simple to use, efficient, and full-featured Command Line Argument Parser</description>
       <scope>required</scope>
       <licenses>
         <expression>MIT OR Apache-2.0</expression>
       </licenses>
-      <purl>pkg:cargo/clap@4.2.2</purl>
+      <purl>pkg:cargo/clap@4.2.4</purl>
       <externalReferences>
         <reference type="vcs">
           <url>https://github.com/clap-rs/clap</url>
         </reference>
       </externalReferences>
     </component>
-    <component type="library" bom-ref="pkg:cargo/clap_builder@4.2.2">
+    <component type="library" bom-ref="pkg:cargo/clap_builder@4.2.4">
       <name>clap_builder</name>
-      <version>4.2.2</version>
+      <version>4.2.4</version>
       <description>A simple to use, efficient, and full-featured Command Line Argument Parser</description>
       <scope>required</scope>
       <licenses>
         <expression>MIT OR Apache-2.0</expression>
       </licenses>
-      <purl>pkg:cargo/clap_builder@4.2.2</purl>
+      <purl>pkg:cargo/clap_builder@4.2.4</purl>
       <externalReferences>
         <reference type="vcs">
           <url>https://github.com/clap-rs/clap</url>
@@ -773,15 +773,15 @@
         </reference>
       </externalReferences>
     </component>
-    <component type="library" bom-ref="pkg:cargo/h2@0.3.17">
+    <component type="library" bom-ref="pkg:cargo/h2@0.3.18">
       <name>h2</name>
-      <version>0.3.17</version>
+      <version>0.3.18</version>
       <description>An HTTP/2 client and server</description>
       <scope>required</scope>
       <licenses>
         <expression>MIT</expression>
       </licenses>
-      <purl>pkg:cargo/h2@0.3.17</purl>
+      <purl>pkg:cargo/h2@0.3.18</purl>
       <externalReferences>
         <reference type="documentation">
           <url>https://docs.rs/h2</url>
@@ -1127,15 +1127,15 @@
         </reference>
       </externalReferences>
     </component>
-    <component type="library" bom-ref="pkg:cargo/libc@0.2.141">
+    <component type="library" bom-ref="pkg:cargo/libc@0.2.142">
       <name>libc</name>
-      <version>0.2.141</version>
+      <version>0.2.142</version>
       <description>Raw FFI bindings to platform libraries like libc. </description>
       <scope>required</scope>
       <licenses>
         <expression>MIT OR Apache-2.0</expression>
       </licenses>
-      <purl>pkg:cargo/libc@0.2.141</purl>
+      <purl>pkg:cargo/libc@0.2.142</purl>
       <externalReferences>
         <reference type="documentation">
           <url>https://docs.rs/libc/</url>
@@ -1148,15 +1148,15 @@
         </reference>
       </externalReferences>
     </component>
-    <component type="library" bom-ref="pkg:cargo/linux-raw-sys@0.3.1">
+    <component type="library" bom-ref="pkg:cargo/linux-raw-sys@0.3.4">
       <name>linux-raw-sys</name>
-      <version>0.3.1</version>
+      <version>0.3.4</version>
       <description>Generated bindings for Linux's userspace API</description>
       <scope>required</scope>
       <licenses>
         <expression>Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT</expression>
       </licenses>
-      <purl>pkg:cargo/linux-raw-sys@0.3.1</purl>
+      <purl>pkg:cargo/linux-raw-sys@0.3.4</purl>
       <externalReferences>
         <reference type="documentation">
           <url>https://docs.rs/linux-raw-sys</url>
@@ -1328,15 +1328,15 @@
         </reference>
       </externalReferences>
     </component>
-    <component type="library" bom-ref="pkg:cargo/openssl@0.10.50">
+    <component type="library" bom-ref="pkg:cargo/openssl@0.10.51">
       <name>openssl</name>
-      <version>0.10.50</version>
+      <version>0.10.51</version>
       <description>OpenSSL bindings</description>
       <scope>required</scope>
       <licenses>
         <expression>Apache-2.0</expression>
       </licenses>
-      <purl>pkg:cargo/openssl@0.10.50</purl>
+      <purl>pkg:cargo/openssl@0.10.51</purl>
       <externalReferences>
         <reference type="vcs">
           <url>https://github.com/sfackler/rust-openssl</url>
@@ -1371,15 +1371,15 @@
         </reference>
       </externalReferences>
     </component>
-    <component type="library" bom-ref="pkg:cargo/openssl-sys@0.9.85">
+    <component type="library" bom-ref="pkg:cargo/openssl-sys@0.9.86">
       <name>openssl-sys</name>
-      <version>0.9.85</version>
+      <version>0.9.86</version>
       <description>FFI bindings to OpenSSL</description>
       <scope>required</scope>
       <licenses>
         <expression>MIT</expression>
       </licenses>
-      <purl>pkg:cargo/openssl-sys@0.9.85</purl>
+      <purl>pkg:cargo/openssl-sys@0.9.86</purl>
       <externalReferences>
         <reference type="other">
           <url>openssl</url>
@@ -1557,15 +1557,15 @@
         </reference>
       </externalReferences>
     </component>
-    <component type="library" bom-ref="pkg:cargo/regex@1.7.3">
+    <component type="library" bom-ref="pkg:cargo/regex@1.8.1">
       <name>regex</name>
-      <version>1.7.3</version>
+      <version>1.8.1</version>
       <description>An implementation of regular expressions for Rust. This implementation uses finite automata and guarantees linear time matching on all inputs. </description>
       <scope>required</scope>
       <licenses>
         <expression>MIT OR Apache-2.0</expression>
       </licenses>
-      <purl>pkg:cargo/regex@1.7.3</purl>
+      <purl>pkg:cargo/regex@1.8.1</purl>
       <externalReferences>
         <reference type="documentation">
           <url>https://docs.rs/regex</url>
@@ -1578,15 +1578,15 @@
         </reference>
       </externalReferences>
     </component>
-    <component type="library" bom-ref="pkg:cargo/regex-syntax@0.6.29">
+    <component type="library" bom-ref="pkg:cargo/regex-syntax@0.7.1">
       <name>regex-syntax</name>
-      <version>0.6.29</version>
+      <version>0.7.1</version>
       <description>A regular expression parser.</description>
       <scope>required</scope>
       <licenses>
         <expression>MIT OR Apache-2.0</expression>
       </licenses>
-      <purl>pkg:cargo/regex-syntax@0.6.29</purl>
+      <purl>pkg:cargo/regex-syntax@0.7.1</purl>
       <externalReferences>
         <reference type="documentation">
           <url>https://docs.rs/regex-syntax</url>
@@ -1617,15 +1617,15 @@
         </reference>
       </externalReferences>
     </component>
-    <component type="library" bom-ref="pkg:cargo/rustix@0.37.11">
+    <component type="library" bom-ref="pkg:cargo/rustix@0.37.14">
       <name>rustix</name>
-      <version>0.37.11</version>
+      <version>0.37.14</version>
       <description>Safe Rust bindings to POSIX/Unix/Linux/Winsock2-like syscalls</description>
       <scope>required</scope>
       <licenses>
         <expression>Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT</expression>
       </licenses>
-      <purl>pkg:cargo/rustix@0.37.11</purl>
+      <purl>pkg:cargo/rustix@0.37.14</purl>
       <externalReferences>
         <reference type="documentation">
           <url>https://docs.rs/rustix</url>

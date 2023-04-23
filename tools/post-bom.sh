@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cargo cyclonedx -a
+
 curl -X POST \
     $1/api/v1/bom \
     -H "X-Api-Key: $2" \
