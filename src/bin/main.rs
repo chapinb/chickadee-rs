@@ -12,6 +12,12 @@ fn resolve_ip_addresses(ip_addresses: Vec<IpAddr>, columns: Option<Vec<String>>)
         .collect()
 }
 
+fn print_records(ip_records: Vec<String>) {
+    for ip_record in ip_records {
+        println!("{}", ip_record);
+    }
+}
+
 struct Extractor {
     // Extract IP address from input
     source: String,
@@ -65,9 +71,7 @@ fn main() {
     );
 
     // Print IP records
-    for ip_record in ip_records {
-        println!("{}", ip_record);
-    }
+    print_records(ip_records);
 }
 
 #[cfg(test)]
