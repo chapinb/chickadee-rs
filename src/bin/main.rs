@@ -41,7 +41,7 @@ struct Cli {
     /// This may be a delimited string or a file path to a text file
     /// containing one or more IP addresses.
     #[clap(long)]
-    ip: IpAddr,
+    ips: String,
 
     /// Allow user to specify which columns to select in the GeoIP resolution.
     /// Currently only supports the columns found in ip-api.com
@@ -53,9 +53,13 @@ fn main() {
     // Parse CLI arguments
     let cli = Cli::parse();
 
+    // Extract IP addresses
+    let extractor = Extractor::new(cli.ips);
+    let ip_addresses = extractor.extract().unwrap();
+
     // Resolve IP addresses
     let ip_records = resolve_ip_addresses(
-        vec![cli.ip],
+        ip_addresses,
         cli.columns
             .map(|s| s.split(',').map(|s| s.to_string()).collect()),
     );
