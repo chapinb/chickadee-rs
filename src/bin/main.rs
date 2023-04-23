@@ -1,6 +1,7 @@
+use anyhow::Result;
 use clap::{self, Parser};
-use libchickadee::resolver::ip_api::Resolver;
-use std::net::IpAddr;
+use libchickadee::{parser::plain::parse_text_file, resolver::ip_api::Resolver, util::get_all_ips};
+use std::{net::IpAddr, path::Path};
 
 fn resolve_ip_addresses(ip_addresses: Vec<IpAddr>, columns: Option<Vec<String>>) -> Vec<String> {
     let ip_records = Resolver::new(columns).resolve(ip_addresses).unwrap();
@@ -9,6 +10,26 @@ fn resolve_ip_addresses(ip_addresses: Vec<IpAddr>, columns: Option<Vec<String>>)
         .iter()
         .map(|record| serde_json::to_string(record).unwrap())
         .collect()
+}
+
+struct Extractor {
+    // Extract IP address from input
+    source: String,
+    is_file: bool,
+}
+
+impl Extractor {
+    fn new(source: String, is_file: bool) -> Self {
+        Self { source, is_file }
+    }
+
+    fn extract(&self) -> Result<Vec<IpAddr>> {
+        if self.is_file {
+            Ok(parse_text_file(Path::new(&self.source)))
+        } else {
+            Ok(get_all_ips(self.source.as_str()))
+        }
+    }
 }
 
 // Create new struct for Clap to parse CLI arguments
@@ -46,8 +67,10 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
+    use tempfile::NamedTempFile;
+
     use super::*;
-    use std::net::Ipv4Addr;
+    use std::{io::Write, net::Ipv4Addr};
 
     #[test]
     fn test_resolve_ip_addresses() {
@@ -58,5 +81,24 @@ mod tests {
         assert_eq!(1, ip_records.len());
         assert!(ip_records[0].contains("country_code"));
         assert!(ip_records[0].contains("1.1.1.1"));
+    }
+
+    #[test]
+    fn test_resolve_ip_addresses_from_file() {
+        // Create a new temporary text file
+        let mut temp_path = NamedTempFile::new().unwrap();
+        temp_path
+            .write_fmt(format_args!(
+                "{},{},\t{}\n{}",
+                "1.1.1.1", "2.2.2.2", "4", "3.3.3.3"
+            ))
+            .unwrap();
+
+        // Pass this file into
+        let extractor = Extractor::new(temp_path.path().to_string_lossy().to_string(), true);
+        let ip_addresses = extractor.extract();
+
+        assert!(ip_addresses.is_ok());
+        assert!(ip_addresses.unwrap().len() == 3);
     }
 }
