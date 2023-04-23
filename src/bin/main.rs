@@ -70,17 +70,16 @@ struct Cli {
 fn main() {
     // Parse CLI arguments
     let cli = Cli::parse();
-    let columns = cli.columns.map(|s| s.split(',').map(|s| s.to_string()).collect());
+    let columns = cli
+        .columns
+        .map(|s| s.split(',').map(|s| s.to_string()).collect());
 
     // Extract IP addresses
     let extractor = Extractor::new(cli.ips);
     let ip_addresses = extractor.extract().unwrap();
 
     // Resolve IP addresses
-    let ip_records = resolve_ip_addresses(
-        ip_addresses,
-        columns.clone(),
-    );
+    let ip_records = resolve_ip_addresses(ip_addresses, columns.clone());
 
     // Print IP records
     print_records(ip_records, columns);

@@ -1,6 +1,6 @@
 use anyhow::Result;
+use serde::ser::SerializeStruct;
 use serde::{Deserialize, Serialize};
-use serde::ser::{SerializeStruct};
 use serde_json::Value;
 use std::net::IpAddr;
 
@@ -110,11 +110,11 @@ impl IpApiRecord {
     }
 }
 
-
 impl Serialize for IpApiRecord {
     fn serialize<S>(&self, serializer: S) -> std::result::Result<S::Ok, S::Error>
-        where
-            S: serde::Serializer {
+    where
+        S: serde::Serializer,
+    {
         let mut state = serializer.serialize_struct("IpApiRecord", 20)?;
         state.serialize_field("query", &self.query)?;
         state.serialize_field("status", &self.status)?;
