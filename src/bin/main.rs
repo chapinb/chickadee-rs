@@ -102,7 +102,10 @@ fn main() {
     let ip_addresses = match extractor.extract() {
         Ok(ip_addresses) => ip_addresses,
         Err(e) => {
-            eprintln!("Error while extracting IP addresses from {}: {}", cli.ips, e);
+            eprintln!(
+                "Error while extracting IP addresses from {}: {}",
+                cli.ips, e
+            );
             std::process::exit(1);
         }
     };
