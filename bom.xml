@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<bom xmlns="http://cyclonedx.org/schema/bom/1.3" serialNumber="urn:uuid:7f376325-d404-45f3-b829-a569e73f8dba" version="1">
+<bom xmlns="http://cyclonedx.org/schema/bom/1.3" serialNumber="urn:uuid:2c941b14-4756-463a-8470-1b560696df12" version="1">
   <metadata>
-    <timestamp>2023-04-23T17:24:27.721968449Z</timestamp>
+    <timestamp>2023-04-23T17:54:59.459674158Z</timestamp>
     <tools>
       <tool>
         <vendor>CycloneDX</vendor>
@@ -17,6 +17,171 @@
     </component>
   </metadata>
   <components>
+    <component type="library" bom-ref="pkg:cargo/adler@1.0.2">
+      <name>adler</name>
+      <version>1.0.2</version>
+      <description>A simple clean-room implementation of the Adler-32 checksum</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>0BSD OR MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/adler@1.0.2</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/adler/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/jonas-schievink/adler.git</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/aho-corasick@0.7.20">
+      <name>aho-corasick</name>
+      <version>0.7.20</version>
+      <description>Fast multiple substring searching.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>Unlicense OR MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/aho-corasick@0.7.20</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://github.com/BurntSushi/aho-corasick</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/BurntSushi/aho-corasick</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/alloc-no-stdlib@2.0.4">
+      <name>alloc-no-stdlib</name>
+      <version>2.0.4</version>
+      <description>A dynamic allocator that may be used with or without the stdlib. This allows a package with nostd to allocate memory dynamically and be used either with a custom allocator, items on the stack, or by a package that wishes to simply use Box&lt;>. It also provides options to use calloc or a mutable global variable for pre-zeroed memory</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>BSD-3-Clause</expression>
+      </licenses>
+      <purl>pkg:cargo/alloc-no-stdlib@2.0.4</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://raw.githubusercontent.com/dropbox/rust-alloc-no-stdlib/master/tests/lib.rs</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/dropbox/rust-alloc-no-stdlib</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/dropbox/rust-alloc-no-stdlib</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/alloc-stdlib@0.2.2">
+      <name>alloc-stdlib</name>
+      <version>0.2.2</version>
+      <description>A dynamic allocator example that may be used with the stdlib</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>BSD-3-Clause</expression>
+      </licenses>
+      <purl>pkg:cargo/alloc-stdlib@0.2.2</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://raw.githubusercontent.com/dropbox/rust-alloc-no-stdlib/master/alloc-stdlib/tests/lib.rs</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/dropbox/rust-alloc-no-stdlib</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/dropbox/rust-alloc-no-stdlib</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/anstream@0.3.0">
+      <name>anstream</name>
+      <version>0.3.0</version>
+      <description>A simple cross platform library for writing colored text to a terminal.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/anstream@0.3.0</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://github.com/rust-cli/anstyle</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-cli/anstyle.git</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/anstyle@1.0.0">
+      <name>anstyle</name>
+      <version>1.0.0</version>
+      <description>ANSI text styling</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/anstyle@1.0.0</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://github.com/rust-cli/anstyle</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-cli/anstyle.git</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/anstyle-parse@0.2.0">
+      <name>anstyle-parse</name>
+      <version>0.2.0</version>
+      <description>Parse ANSI Style Escapes</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/anstyle-parse@0.2.0</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://github.com/rust-cli/anstyle</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-cli/anstyle.git</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/anstyle-query@1.0.0">
+      <name>anstyle-query</name>
+      <version>1.0.0</version>
+      <description>Look up colored console capabilities</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/anstyle-query@1.0.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/rust-cli/anstyle</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/anstyle-wincon@1.0.0">
+      <name>anstyle-wincon</name>
+      <version>1.0.0</version>
+      <description>Styling legacy Windows terminals</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/anstyle-wincon@1.0.0</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://github.com/rust-cli/anstyle</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-cli/anstyle.git</url>
+        </reference>
+      </externalReferences>
+    </component>
     <component type="library" bom-ref="pkg:cargo/anyhow@1.0.70">
       <name>anyhow</name>
       <version>1.0.70</version>
@@ -35,6 +200,192 @@
         </reference>
       </externalReferences>
     </component>
+    <component type="library" bom-ref="pkg:cargo/async-compression@0.3.15">
+      <name>async-compression</name>
+      <version>0.3.15</version>
+      <description>Adaptors between compression crates and Rust's modern asynchronous IO types. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/async-compression@0.3.15</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/Nemo157/async-compression</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/autocfg@1.1.0">
+      <name>autocfg</name>
+      <version>1.1.0</version>
+      <description>Automatic cfg for Rust compiler features</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>Apache-2.0 OR MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/autocfg@1.1.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/cuviper/autocfg</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/base64@0.21.0">
+      <name>base64</name>
+      <version>0.21.0</version>
+      <description>encodes and decodes base64 as bytes or utf8</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/base64@0.21.0</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/base64</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/marshallpierce/rust-base64</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/bitflags@1.3.2">
+      <name>bitflags</name>
+      <version>1.3.2</version>
+      <description>A macro to generate structures which behave like bitflags. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/bitflags@1.3.2</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/bitflags</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/bitflags/bitflags</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/bitflags/bitflags</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/brotli@3.3.4">
+      <name>brotli</name>
+      <version>3.3.4</version>
+      <description>A brotli compressor and decompressor that with an interface avoiding the rust stdlib. This makes it suitable for embedded devices and kernels. It is designed with a pluggable allocator so that the standard lib's allocator may be employed. The default build also includes a stdlib allocator and stream interface. Disable this with --features=no-stdlib. All included code is safe.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>BSD-3-Clause OR MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/brotli@3.3.4</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/brotli/</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/dropbox/rust-brotli</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/dropbox/rust-brotli</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/brotli-decompressor@2.3.4">
+      <name>brotli-decompressor</name>
+      <version>2.3.4</version>
+      <description>A brotli decompressor that with an interface avoiding the rust stdlib. This makes it suitable for embedded devices and kernels. It is designed with a pluggable allocator so that the standard lib's allocator may be employed. The default build also includes a stdlib allocator and stream interface. Disable this with --features=no-stdlib. Alternatively, --features=unsafe turns off array bounds checks and memory initialization but provides a safe interface for the caller.  Without adding the --features=unsafe argument, all included code is safe. For compression in addition to this library, download https://github.com/dropbox/rust-brotli </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>BSD-3-Clause OR MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/brotli-decompressor@2.3.4</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://github.com/dropbox/rust-brotli-decompressor/blob/master/README.md</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/dropbox/rust-brotli-decompressor</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/dropbox/rust-brotli-decompressor</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/bumpalo@3.12.0">
+      <name>bumpalo</name>
+      <version>3.12.0</version>
+      <description>A fast bump allocation arena for Rust.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/bumpalo@3.12.0</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/bumpalo</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/fitzgen/bumpalo</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/bytes@1.4.0">
+      <name>bytes</name>
+      <version>1.4.0</version>
+      <description>Types and traits for working with bytes</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/bytes@1.4.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/tokio-rs/bytes</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/cc@1.0.79">
+      <name>cc</name>
+      <version>1.0.79</version>
+      <description>A build-time dependency for Cargo build scripts to assist in invoking the native C compiler to compile native C code into a static archive to be linked into Rust code. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/cc@1.0.79</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/cc</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/rust-lang/cc-rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-lang/cc-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/cfg-if@1.0.0">
+      <name>cfg-if</name>
+      <version>1.0.0</version>
+      <description>A macro to ergonomically define an item depending on a large number of #[cfg] parameters. Structured like an if-else chain, the first matching branch is the item that gets emitted. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/cfg-if@1.0.0</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/cfg-if</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/alexcrichton/cfg-if</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/alexcrichton/cfg-if</url>
+        </reference>
+      </externalReferences>
+    </component>
     <component type="library" bom-ref="pkg:cargo/clap@4.2.2">
       <name>clap</name>
       <version>4.2.2</version>
@@ -47,6 +398,714 @@
       <externalReferences>
         <reference type="vcs">
           <url>https://github.com/clap-rs/clap</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/clap_builder@4.2.2">
+      <name>clap_builder</name>
+      <version>4.2.2</version>
+      <description>A simple to use, efficient, and full-featured Command Line Argument Parser</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/clap_builder@4.2.2</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/clap-rs/clap</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/clap_derive@4.2.0">
+      <name>clap_derive</name>
+      <version>4.2.0</version>
+      <description>Parse command line argument by defining a struct, derive crate.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/clap_derive@4.2.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/clap-rs/clap/tree/master/clap_derive</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/clap_lex@0.4.1">
+      <name>clap_lex</name>
+      <version>0.4.1</version>
+      <description>Minimal, flexible command line parser</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/clap_lex@0.4.1</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/clap-rs/clap/tree/master/clap_lex</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/colorchoice@1.0.0">
+      <name>colorchoice</name>
+      <version>1.0.0</version>
+      <description>Global override of color control</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/colorchoice@1.0.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/rust-cli/anstyle</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/core-foundation@0.9.3">
+      <name>core-foundation</name>
+      <version>0.9.3</version>
+      <description>Bindings to Core Foundation for macOS</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT  OR  Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/core-foundation@0.9.3</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://github.com/servo/core-foundation-rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/servo/core-foundation-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/core-foundation-sys@0.8.4">
+      <name>core-foundation-sys</name>
+      <version>0.8.4</version>
+      <description>Bindings to Core Foundation for macOS</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT  OR  Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/core-foundation-sys@0.8.4</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://github.com/servo/core-foundation-rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/servo/core-foundation-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/crc32fast@1.3.2">
+      <name>crc32fast</name>
+      <version>1.3.2</version>
+      <description>Fast, SIMD-accelerated CRC32 (IEEE) checksum computation</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/crc32fast@1.3.2</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/srijs/rust-crc32fast</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/encoding_rs@0.8.32">
+      <name>encoding_rs</name>
+      <version>0.8.32</version>
+      <description>A Gecko-oriented implementation of the Encoding Standard</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>(Apache-2.0 OR MIT) AND BSD-3-Clause</expression>
+      </licenses>
+      <purl>pkg:cargo/encoding_rs@0.8.32</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/encoding_rs/</url>
+        </reference>
+        <reference type="website">
+          <url>https://docs.rs/encoding_rs/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/hsivonen/encoding_rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/errno@0.3.1">
+      <name>errno</name>
+      <version>0.3.1</version>
+      <description>Cross-platform interface to the `errno` variable.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/errno@0.3.1</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/errno</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/lambda-fairy/rust-errno</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/errno-dragonfly@0.1.2">
+      <name>errno-dragonfly</name>
+      <version>0.1.2</version>
+      <description>Exposes errno functionality to stable Rust on DragonFlyBSD</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/errno-dragonfly@0.1.2</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/mneumann/errno-dragonfly-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/fastrand@1.9.0">
+      <name>fastrand</name>
+      <version>1.9.0</version>
+      <description>A simple and fast random number generator</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>Apache-2.0 OR MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/fastrand@1.9.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/smol-rs/fastrand</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/flate2@1.0.25">
+      <name>flate2</name>
+      <version>1.0.25</version>
+      <description>DEFLATE compression and decompression exposed as Read/BufRead/Write streams. Supports miniz_oxide and multiple zlib implementations. Supports zlib, gzip, and raw deflate streams. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/flate2@1.0.25</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/flate2</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/rust-lang/flate2-rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-lang/flate2-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/fnv@1.0.7">
+      <name>fnv</name>
+      <version>1.0.7</version>
+      <description>Fowler–Noll–Vo hash function</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>Apache-2.0  OR  MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/fnv@1.0.7</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://doc.servo.org/fnv/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/servo/rust-fnv</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/foreign-types@0.3.2">
+      <name>foreign-types</name>
+      <version>0.3.2</version>
+      <description>A framework for Rust wrappers over C APIs</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/foreign-types@0.3.2</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/sfackler/foreign-types</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/foreign-types-shared@0.1.1">
+      <name>foreign-types-shared</name>
+      <version>0.1.1</version>
+      <description>An internal crate used by foreign-types</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/foreign-types-shared@0.1.1</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/sfackler/foreign-types</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/form_urlencoded@1.1.0">
+      <name>form_urlencoded</name>
+      <version>1.1.0</version>
+      <description>Parser and serializer for the application/x-www-form-urlencoded syntax, as used by HTML forms.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/form_urlencoded@1.1.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/servo/rust-url</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/futures-channel@0.3.28">
+      <name>futures-channel</name>
+      <version>0.3.28</version>
+      <description>Channels for asynchronous communication using futures-rs. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/futures-channel@0.3.28</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://rust-lang.github.io/futures-rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-lang/futures-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/futures-core@0.3.28">
+      <name>futures-core</name>
+      <version>0.3.28</version>
+      <description>The core traits and types in for the `futures` library. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/futures-core@0.3.28</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://rust-lang.github.io/futures-rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-lang/futures-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/futures-io@0.3.28">
+      <name>futures-io</name>
+      <version>0.3.28</version>
+      <description>The `AsyncRead`, `AsyncWrite`, `AsyncSeek`, and `AsyncBufRead` traits for the futures-rs library. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/futures-io@0.3.28</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://rust-lang.github.io/futures-rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-lang/futures-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/futures-sink@0.3.28">
+      <name>futures-sink</name>
+      <version>0.3.28</version>
+      <description>The asynchronous `Sink` trait for the futures-rs library. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/futures-sink@0.3.28</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://rust-lang.github.io/futures-rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-lang/futures-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/futures-task@0.3.28">
+      <name>futures-task</name>
+      <version>0.3.28</version>
+      <description>Tools for working with tasks. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/futures-task@0.3.28</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://rust-lang.github.io/futures-rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-lang/futures-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/futures-util@0.3.28">
+      <name>futures-util</name>
+      <version>0.3.28</version>
+      <description>Common utilities and extension traits for the futures-rs library. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/futures-util@0.3.28</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://rust-lang.github.io/futures-rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-lang/futures-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/h2@0.3.17">
+      <name>h2</name>
+      <version>0.3.17</version>
+      <description>An HTTP/2 client and server</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/h2@0.3.17</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/h2</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/hyperium/h2</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/hashbrown@0.12.3">
+      <name>hashbrown</name>
+      <version>0.12.3</version>
+      <description>A Rust port of Google's SwissTable hash map</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/hashbrown@0.12.3</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/rust-lang/hashbrown</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/heck@0.4.1">
+      <name>heck</name>
+      <version>0.4.1</version>
+      <description>heck is a case conversion library.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/heck@0.4.1</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/heck</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/withoutboats/heck</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/withoutboats/heck</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/hermit-abi@0.2.6">
+      <name>hermit-abi</name>
+      <version>0.2.6</version>
+      <description>hermit-abi is small interface to call functions from the unikernel RustyHermit. It is used to build the target `x86_64-unknown-hermit`. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/hermit-abi@0.2.6</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://hermitcore.github.io/rusty-hermit/hermit_abi</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/hermitcore/rusty-hermit</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/hermit-abi@0.3.1">
+      <name>hermit-abi</name>
+      <version>0.3.1</version>
+      <description>Hermit system calls definitions.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/hermit-abi@0.3.1</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/hermitcore/rusty-hermit</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/http@0.2.9">
+      <name>http</name>
+      <version>0.2.9</version>
+      <description>A set of types for representing HTTP requests and responses. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/http@0.2.9</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/http</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/hyperium/http</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/http-body@0.4.5">
+      <name>http-body</name>
+      <version>0.4.5</version>
+      <description>Trait representing an asynchronous, streaming, HTTP request or response body. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/http-body@0.4.5</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/http-body</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/hyperium/http-body</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/httparse@1.8.0">
+      <name>httparse</name>
+      <version>1.8.0</version>
+      <description>A tiny, safe, speedy, zero-copy HTTP/1.x parser.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/httparse@1.8.0</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/httparse</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/seanmonstar/httparse</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/httpdate@1.0.2">
+      <name>httpdate</name>
+      <version>1.0.2</version>
+      <description>HTTP date parsing and formatting</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/httpdate@1.0.2</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/pyfisch/httpdate</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/hyper@0.14.26">
+      <name>hyper</name>
+      <version>0.14.26</version>
+      <description>A fast and correct HTTP library.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/hyper@0.14.26</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/hyper</url>
+        </reference>
+        <reference type="website">
+          <url>https://hyper.rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/hyperium/hyper</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/hyper-tls@0.5.0">
+      <name>hyper-tls</name>
+      <version>0.5.0</version>
+      <description>Default TLS implementation for use with hyper</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/hyper-tls@0.5.0</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/hyper-tls</url>
+        </reference>
+        <reference type="website">
+          <url>https://hyper.rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/hyperium/hyper-tls</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/idna@0.3.0">
+      <name>idna</name>
+      <version>0.3.0</version>
+      <description>IDNA (Internationalizing Domain Names in Applications) and Punycode.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/idna@0.3.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/servo/rust-url/</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/indexmap@1.9.3">
+      <name>indexmap</name>
+      <version>1.9.3</version>
+      <description>A hash table with consistent order and fast iteration.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>Apache-2.0 OR MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/indexmap@1.9.3</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/indexmap/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/bluss/indexmap</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/instant@0.1.12">
+      <name>instant</name>
+      <version>0.1.12</version>
+      <description>A partial replacement for std::time::Instant that works on WASM too.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>BSD-3-Clause</expression>
+      </licenses>
+      <purl>pkg:cargo/instant@0.1.12</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/sebcrozet/instant</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/io-lifetimes@1.0.10">
+      <name>io-lifetimes</name>
+      <version>1.0.10</version>
+      <description>A low-level I/O ownership and borrowing library</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/io-lifetimes@1.0.10</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/sunfishcode/io-lifetimes</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/ipnet@2.7.2">
+      <name>ipnet</name>
+      <version>2.7.2</version>
+      <description>Provides types and useful methods for working with IPv4 and IPv6 network addresses, commonly called IP prefixes. The new `IpNet`, `Ipv4Net`, and `Ipv6Net` types build on the existing `IpAddr`, `Ipv4Addr`, and `Ipv6Addr` types already provided in Rust's standard library and align to their design to stay consistent. The module also provides useful traits that extend `Ipv4Addr` and `Ipv6Addr` with methods for `Add`, `Sub`, `BitAnd`, and `BitOr` operations. The module only uses stable feature so it is guaranteed to compile using the stable toolchain.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/ipnet@2.7.2</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/ipnet</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/krisprice/ipnet</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/is-terminal@0.4.7">
+      <name>is-terminal</name>
+      <version>0.4.7</version>
+      <description>Test whether a given stream is a terminal</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/is-terminal@0.4.7</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>http://docs.rs/is-terminal</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/sunfishcode/is-terminal</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/itoa@1.0.6">
+      <name>itoa</name>
+      <version>1.0.6</version>
+      <description>Fast integer primitive to string conversion</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/itoa@1.0.6</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/itoa</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/dtolnay/itoa</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/js-sys@0.3.61">
+      <name>js-sys</name>
+      <version>0.3.61</version>
+      <description>Bindings for all JS global objects and functions in all JS environments like Node.js and browsers, built on `#[wasm_bindgen]` using the `wasm-bindgen` crate. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/js-sys@0.3.61</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/js-sys</url>
+        </reference>
+        <reference type="website">
+          <url>https://rustwasm.github.io/wasm-bindgen/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rustwasm/wasm-bindgen/tree/master/crates/js-sys</url>
         </reference>
       </externalReferences>
     </component>
@@ -68,6 +1127,436 @@
         </reference>
       </externalReferences>
     </component>
+    <component type="library" bom-ref="pkg:cargo/libc@0.2.141">
+      <name>libc</name>
+      <version>0.2.141</version>
+      <description>Raw FFI bindings to platform libraries like libc. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/libc@0.2.141</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/libc/</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/rust-lang/libc</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-lang/libc</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/linux-raw-sys@0.3.1">
+      <name>linux-raw-sys</name>
+      <version>0.3.1</version>
+      <description>Generated bindings for Linux's userspace API</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/linux-raw-sys@0.3.1</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/linux-raw-sys</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/sunfishcode/linux-raw-sys</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/lock_api@0.4.9">
+      <name>lock_api</name>
+      <version>0.4.9</version>
+      <description>Wrappers to create fully-featured Mutex and RwLock types. Compatible with no_std.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/lock_api@0.4.9</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/Amanieu/parking_lot</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/log@0.4.17">
+      <name>log</name>
+      <version>0.4.17</version>
+      <description>A lightweight logging facade for Rust </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/log@0.4.17</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/log</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-lang/log</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/memchr@2.5.0">
+      <name>memchr</name>
+      <version>2.5.0</version>
+      <description>Safe interface to memchr.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>Unlicense OR MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/memchr@2.5.0</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/memchr/</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/BurntSushi/memchr</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/BurntSushi/memchr</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/mime@0.3.17">
+      <name>mime</name>
+      <version>0.3.17</version>
+      <description>Strongly Typed Mimes</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/mime@0.3.17</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/mime</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/hyperium/mime</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/miniz_oxide@0.6.2">
+      <name>miniz_oxide</name>
+      <version>0.6.2</version>
+      <description>DEFLATE compression and decompression library rewritten in Rust based on miniz</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Zlib OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/miniz_oxide@0.6.2</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/miniz_oxide</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/Frommi/miniz_oxide/tree/master/miniz_oxide</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/Frommi/miniz_oxide/tree/master/miniz_oxide</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/mio@0.8.6">
+      <name>mio</name>
+      <version>0.8.6</version>
+      <description>Lightweight non-blocking I/O.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/mio@0.8.6</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://github.com/tokio-rs/mio</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/tokio-rs/mio</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/native-tls@0.2.11">
+      <name>native-tls</name>
+      <version>0.2.11</version>
+      <description>A wrapper over a platform's native TLS implementation</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/native-tls@0.2.11</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/sfackler/rust-native-tls</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/num_cpus@1.15.0">
+      <name>num_cpus</name>
+      <version>1.15.0</version>
+      <description>Get the number of CPUs on a machine.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/num_cpus@1.15.0</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/num_cpus</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/seanmonstar/num_cpus</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/once_cell@1.17.1">
+      <name>once_cell</name>
+      <version>1.17.1</version>
+      <description>Single assignment cells and lazy values.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/once_cell@1.17.1</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/once_cell</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/matklad/once_cell</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/openssl@0.10.50">
+      <name>openssl</name>
+      <version>0.10.50</version>
+      <description>OpenSSL bindings</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/openssl@0.10.50</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/sfackler/rust-openssl</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/openssl-macros@0.1.1">
+      <name>openssl-macros</name>
+      <version>0.1.1</version>
+      <description>Internal macros used by the openssl crate.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/openssl-macros@0.1.1</purl>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/openssl-probe@0.1.5">
+      <name>openssl-probe</name>
+      <version>0.1.5</version>
+      <description>Tool for helping to find SSL certificate locations on the system for OpenSSL </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/openssl-probe@0.1.5</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://github.com/alexcrichton/openssl-probe</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/alexcrichton/openssl-probe</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/openssl-sys@0.9.85">
+      <name>openssl-sys</name>
+      <version>0.9.85</version>
+      <description>FFI bindings to OpenSSL</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/openssl-sys@0.9.85</purl>
+      <externalReferences>
+        <reference type="other">
+          <url>openssl</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/sfackler/rust-openssl</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/parking_lot@0.12.1">
+      <name>parking_lot</name>
+      <version>0.12.1</version>
+      <description>More compact and efficient implementations of the standard synchronization primitives.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/parking_lot@0.12.1</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/Amanieu/parking_lot</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/parking_lot_core@0.9.7">
+      <name>parking_lot_core</name>
+      <version>0.9.7</version>
+      <description>An advanced API for creating custom synchronization primitives.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/parking_lot_core@0.9.7</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/Amanieu/parking_lot</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/percent-encoding@2.2.0">
+      <name>percent-encoding</name>
+      <version>2.2.0</version>
+      <description>Percent encoding and decoding</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/percent-encoding@2.2.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/servo/rust-url/</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/pin-project-lite@0.2.9">
+      <name>pin-project-lite</name>
+      <version>0.2.9</version>
+      <description>A lightweight version of pin-project written with declarative macros. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>Apache-2.0 OR MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/pin-project-lite@0.2.9</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/taiki-e/pin-project-lite</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/pin-utils@0.1.0">
+      <name>pin-utils</name>
+      <version>0.1.0</version>
+      <description>Utilities for pinning </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/pin-utils@0.1.0</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/pin-utils</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-lang-nursery/pin-utils</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/pkg-config@0.3.26">
+      <name>pkg-config</name>
+      <version>0.3.26</version>
+      <description>A library to run the pkg-config system tool at build time in order to be used in Cargo build scripts. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/pkg-config@0.3.26</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/pkg-config</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-lang/pkg-config-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/proc-macro2@1.0.56">
+      <name>proc-macro2</name>
+      <version>1.0.56</version>
+      <description>A substitute implementation of the compiler's `proc_macro` API to decouple token-based libraries from the procedural macro use case.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/proc-macro2@1.0.56</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/proc-macro2</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/dtolnay/proc-macro2</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/quote@1.0.26">
+      <name>quote</name>
+      <version>1.0.26</version>
+      <description>Quasi-quoting macro quote!(...)</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/quote@1.0.26</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/quote/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/dtolnay/quote</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/redox_syscall@0.2.16">
+      <name>redox_syscall</name>
+      <version>0.2.16</version>
+      <description>A Rust library to access raw Redox system calls</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/redox_syscall@0.2.16</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/redox_syscall</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://gitlab.redox-os.org/redox-os/syscall</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/redox_syscall@0.3.5">
+      <name>redox_syscall</name>
+      <version>0.3.5</version>
+      <description>A Rust library to access raw Redox system calls</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/redox_syscall@0.3.5</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/redox_syscall</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://gitlab.redox-os.org/redox-os/syscall</url>
+        </reference>
+      </externalReferences>
+    </component>
     <component type="library" bom-ref="pkg:cargo/regex@1.7.3">
       <name>regex</name>
       <version>1.7.3</version>
@@ -80,6 +1569,27 @@
       <externalReferences>
         <reference type="documentation">
           <url>https://docs.rs/regex</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/rust-lang/regex</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-lang/regex</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/regex-syntax@0.6.29">
+      <name>regex-syntax</name>
+      <version>0.6.29</version>
+      <description>A regular expression parser.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/regex-syntax@0.6.29</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/regex-syntax</url>
         </reference>
         <reference type="website">
           <url>https://github.com/rust-lang/regex</url>
@@ -107,6 +1617,120 @@
         </reference>
       </externalReferences>
     </component>
+    <component type="library" bom-ref="pkg:cargo/rustix@0.37.11">
+      <name>rustix</name>
+      <version>0.37.11</version>
+      <description>Safe Rust bindings to POSIX/Unix/Linux/Winsock2-like syscalls</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/rustix@0.37.11</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/rustix</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/bytecodealliance/rustix</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/ryu@1.0.13">
+      <name>ryu</name>
+      <version>1.0.13</version>
+      <description>Fast floating point to string conversion</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>Apache-2.0 OR BSL-1.0</expression>
+      </licenses>
+      <purl>pkg:cargo/ryu@1.0.13</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/ryu</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/dtolnay/ryu</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/schannel@0.1.21">
+      <name>schannel</name>
+      <version>0.1.21</version>
+      <description>Schannel bindings for rust, allowing SSL/TLS (e.g. https) without openssl</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/schannel@0.1.21</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/schannel/0.1.19/schannel/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/steffengy/schannel-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/scopeguard@1.1.0">
+      <name>scopeguard</name>
+      <version>1.1.0</version>
+      <description>A RAII scope guard that will run a given closure when it goes out of scope, even if the code between panics (assuming unwinding panic).  Defines the macros `defer!`, `defer_on_unwind!`, `defer_on_success!` as shorthands for guards with one of the implemented strategies. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/scopeguard@1.1.0</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/scopeguard/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/bluss/scopeguard</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/security-framework@2.8.2">
+      <name>security-framework</name>
+      <version>2.8.2</version>
+      <description>Security.framework bindings for macOS and iOS</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/security-framework@2.8.2</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/security_framework</url>
+        </reference>
+        <reference type="website">
+          <url>https://lib.rs/crates/security_framework</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/kornelski/rust-security-framework</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/security-framework-sys@2.8.0">
+      <name>security-framework-sys</name>
+      <version>2.8.0</version>
+      <description>Apple `Security.framework` low-level FFI bindings</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/security-framework-sys@2.8.0</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://kornelski.github.io/rust-security-framework/doc/security_framework_sys</url>
+        </reference>
+        <reference type="website">
+          <url>https://lib.rs/crates/security-framework-sys</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/kornelski/rust-security-framework</url>
+        </reference>
+      </externalReferences>
+    </component>
     <component type="library" bom-ref="pkg:cargo/serde@1.0.160">
       <name>serde</name>
       <version>1.0.160</version>
@@ -119,6 +1743,27 @@
       <externalReferences>
         <reference type="documentation">
           <url>https://docs.rs/serde</url>
+        </reference>
+        <reference type="website">
+          <url>https://serde.rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/serde-rs/serde</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/serde_derive@1.0.160">
+      <name>serde_derive</name>
+      <version>1.0.160</version>
+      <description>Macros 1.1 implementation of #[derive(Serialize, Deserialize)]</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/serde_derive@1.0.160</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://serde.rs/derive.html</url>
         </reference>
         <reference type="website">
           <url>https://serde.rs</url>
@@ -146,6 +1791,204 @@
         </reference>
       </externalReferences>
     </component>
+    <component type="library" bom-ref="pkg:cargo/serde_urlencoded@0.7.1">
+      <name>serde_urlencoded</name>
+      <version>0.7.1</version>
+      <description>`x-www-form-urlencoded` meets Serde</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/serde_urlencoded@0.7.1</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/serde_urlencoded/0.7.1/serde_urlencoded/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/nox/serde_urlencoded</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/signal-hook-registry@1.4.1">
+      <name>signal-hook-registry</name>
+      <version>1.4.1</version>
+      <description>Backend crate for signal-hook</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>Apache-2.0 OR MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/signal-hook-registry@1.4.1</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/signal-hook-registry</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/vorner/signal-hook</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/slab@0.4.8">
+      <name>slab</name>
+      <version>0.4.8</version>
+      <description>Pre-allocated storage for a uniform data type</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/slab@0.4.8</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/tokio-rs/slab</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/smallvec@1.10.0">
+      <name>smallvec</name>
+      <version>1.10.0</version>
+      <description>'Small vector' optimization: store up to a small number of items on the stack</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/smallvec@1.10.0</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/smallvec/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/servo/rust-smallvec</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/socket2@0.4.9">
+      <name>socket2</name>
+      <version>0.4.9</version>
+      <description>Utilities for handling networking sockets with a maximal amount of configuration possible intended. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/socket2@0.4.9</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/socket2</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/rust-lang/socket2</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-lang/socket2</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/strsim@0.10.0">
+      <name>strsim</name>
+      <version>0.10.0</version>
+      <description>Implementations of string similarity metrics. Includes Hamming, Levenshtein, OSA, Damerau-Levenshtein, Jaro, Jaro-Winkler, and Sørensen-Dice. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/strsim@0.10.0</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/strsim/</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/dguo/strsim-rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/dguo/strsim-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/syn@1.0.109">
+      <name>syn</name>
+      <version>1.0.109</version>
+      <description>Parser for Rust source code</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/syn@1.0.109</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/syn</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/dtolnay/syn</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/syn@2.0.15">
+      <name>syn</name>
+      <version>2.0.15</version>
+      <description>Parser for Rust source code</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/syn@2.0.15</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/syn</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/dtolnay/syn</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/tempfile@3.5.0">
+      <name>tempfile</name>
+      <version>3.5.0</version>
+      <description>A library for managing temporary files and directories.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/tempfile@3.5.0</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/tempfile</url>
+        </reference>
+        <reference type="website">
+          <url>https://stebalien.com/projects/tempfile-rs/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/Stebalien/tempfile</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/tinyvec@1.6.0">
+      <name>tinyvec</name>
+      <version>1.6.0</version>
+      <description>`tinyvec` provides 100% safe vec-like data structures.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>Zlib OR Apache-2.0 OR MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/tinyvec@1.6.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/Lokathor/tinyvec</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/tinyvec_macros@0.1.1">
+      <name>tinyvec_macros</name>
+      <version>0.1.1</version>
+      <description>Some macros for tiny containers</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0 OR Zlib</expression>
+      </licenses>
+      <purl>pkg:cargo/tinyvec_macros@0.1.1</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/Soveu/tinyvec_macros</url>
+        </reference>
+      </externalReferences>
+    </component>
     <component type="library" bom-ref="pkg:cargo/tokio@1.27.0">
       <name>tokio</name>
       <version>1.27.0</version>
@@ -161,6 +2004,789 @@
         </reference>
         <reference type="vcs">
           <url>https://github.com/tokio-rs/tokio</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/tokio-macros@2.0.0">
+      <name>tokio-macros</name>
+      <version>2.0.0</version>
+      <description>Tokio's proc macros. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/tokio-macros@2.0.0</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://tokio.rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/tokio-rs/tokio</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/tokio-native-tls@0.3.1">
+      <name>tokio-native-tls</name>
+      <version>0.3.1</version>
+      <description>An implementation of TLS/SSL streams for Tokio using native-tls giving an implementation of TLS for nonblocking I/O streams. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/tokio-native-tls@0.3.1</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/tokio-native-tls</url>
+        </reference>
+        <reference type="website">
+          <url>https://tokio.rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/tokio-rs/tls</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/tokio-util@0.7.7">
+      <name>tokio-util</name>
+      <version>0.7.7</version>
+      <description>Additional utilities for working with Tokio. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/tokio-util@0.7.7</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://tokio.rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/tokio-rs/tokio</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/tower-service@0.3.2">
+      <name>tower-service</name>
+      <version>0.3.2</version>
+      <description>Trait representing an asynchronous, request / response based, client or server. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/tower-service@0.3.2</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/tower-service/0.3.2</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/tower-rs/tower</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/tower-rs/tower</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/tracing@0.1.37">
+      <name>tracing</name>
+      <version>0.1.37</version>
+      <description>Application-level tracing for Rust. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/tracing@0.1.37</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://tokio.rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/tokio-rs/tracing</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/tracing-core@0.1.30">
+      <name>tracing-core</name>
+      <version>0.1.30</version>
+      <description>Core primitives for application-level tracing. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/tracing-core@0.1.30</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://tokio.rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/tokio-rs/tracing</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/try-lock@0.2.4">
+      <name>try-lock</name>
+      <version>0.2.4</version>
+      <description>A lightweight atomic lock.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/try-lock@0.2.4</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/try-lock</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/seanmonstar/try-lock</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/seanmonstar/try-lock</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/unicode-bidi@0.3.13">
+      <name>unicode-bidi</name>
+      <version>0.3.13</version>
+      <description>Implementation of the Unicode Bidirectional Algorithm</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/unicode-bidi@0.3.13</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/unicode-bidi/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/servo/unicode-bidi</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/unicode-ident@1.0.8">
+      <name>unicode-ident</name>
+      <version>1.0.8</version>
+      <description>Determine whether characters have the XID_Start or XID_Continue properties according to Unicode Standard Annex #31</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>(MIT OR Apache-2.0) AND Unicode-DFS-2016</expression>
+      </licenses>
+      <purl>pkg:cargo/unicode-ident@1.0.8</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/unicode-ident</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/dtolnay/unicode-ident</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/unicode-normalization@0.1.22">
+      <name>unicode-normalization</name>
+      <version>0.1.22</version>
+      <description>This crate provides functions for normalization of Unicode strings, including Canonical and Compatible Decomposition and Recomposition, as described in Unicode Standard Annex #15. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/unicode-normalization@0.1.22</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/unicode-normalization/</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/unicode-rs/unicode-normalization</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/unicode-rs/unicode-normalization</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/url@2.3.1">
+      <name>url</name>
+      <version>2.3.1</version>
+      <description>URL library for Rust, based on the WHATWG URL Standard</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/url@2.3.1</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/url</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/servo/rust-url</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/utf8parse@0.2.1">
+      <name>utf8parse</name>
+      <version>0.2.1</version>
+      <description>Table-driven UTF-8 parser</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>Apache-2.0 OR MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/utf8parse@0.2.1</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/utf8parse/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/alacritty/vte</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/vcpkg@0.2.15">
+      <name>vcpkg</name>
+      <version>0.2.15</version>
+      <description>A library to find native dependencies in a vcpkg tree at build time in order to be used in Cargo build scripts. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/vcpkg@0.2.15</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/vcpkg</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/mcgoo/vcpkg-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/want@0.3.0">
+      <name>want</name>
+      <version>0.3.0</version>
+      <description>Detect when another Future wants a result.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/want@0.3.0</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/want</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/seanmonstar/want</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/wasi@0.11.0+wasi-snapshot-preview1">
+      <name>wasi</name>
+      <version>0.11.0+wasi-snapshot-preview1</version>
+      <description>Experimental WASI API bindings for Rust</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/wasi@0.11.0+wasi-snapshot-preview1</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/wasi</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/bytecodealliance/wasi</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/wasm-bindgen@0.2.84">
+      <name>wasm-bindgen</name>
+      <version>0.2.84</version>
+      <description>Easy support for interacting between JS and Rust. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/wasm-bindgen@0.2.84</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/wasm-bindgen</url>
+        </reference>
+        <reference type="website">
+          <url>https://rustwasm.github.io/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rustwasm/wasm-bindgen</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/wasm-bindgen-backend@0.2.84">
+      <name>wasm-bindgen-backend</name>
+      <version>0.2.84</version>
+      <description>Backend code generation of the wasm-bindgen tool </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/wasm-bindgen-backend@0.2.84</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/wasm-bindgen-backend</url>
+        </reference>
+        <reference type="website">
+          <url>https://rustwasm.github.io/wasm-bindgen/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rustwasm/wasm-bindgen/tree/master/crates/backend</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/wasm-bindgen-futures@0.4.34">
+      <name>wasm-bindgen-futures</name>
+      <version>0.4.34</version>
+      <description>Bridging the gap between Rust Futures and JavaScript Promises</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/wasm-bindgen-futures@0.4.34</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/wasm-bindgen-futures</url>
+        </reference>
+        <reference type="website">
+          <url>https://rustwasm.github.io/wasm-bindgen/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rustwasm/wasm-bindgen/tree/master/crates/futures</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/wasm-bindgen-macro@0.2.84">
+      <name>wasm-bindgen-macro</name>
+      <version>0.2.84</version>
+      <description>Definition of the `#[wasm_bindgen]` attribute, an internal dependency </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/wasm-bindgen-macro@0.2.84</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/wasm-bindgen</url>
+        </reference>
+        <reference type="website">
+          <url>https://rustwasm.github.io/wasm-bindgen/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rustwasm/wasm-bindgen/tree/master/crates/macro</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/wasm-bindgen-macro-support@0.2.84">
+      <name>wasm-bindgen-macro-support</name>
+      <version>0.2.84</version>
+      <description>The part of the implementation of the `#[wasm_bindgen]` attribute that is not in the shared backend crate </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/wasm-bindgen-macro-support@0.2.84</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/wasm-bindgen</url>
+        </reference>
+        <reference type="website">
+          <url>https://rustwasm.github.io/wasm-bindgen/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rustwasm/wasm-bindgen/tree/master/crates/macro-support</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/wasm-bindgen-shared@0.2.84">
+      <name>wasm-bindgen-shared</name>
+      <version>0.2.84</version>
+      <description>Shared support between wasm-bindgen and wasm-bindgen cli, an internal dependency. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/wasm-bindgen-shared@0.2.84</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/wasm-bindgen-shared</url>
+        </reference>
+        <reference type="website">
+          <url>https://rustwasm.github.io/wasm-bindgen/</url>
+        </reference>
+        <reference type="other">
+          <url>wasm_bindgen</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rustwasm/wasm-bindgen/tree/master/crates/shared</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/web-sys@0.3.61">
+      <name>web-sys</name>
+      <version>0.3.61</version>
+      <description>Bindings for all Web APIs, a procedurally generated crate from WebIDL </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/web-sys@0.3.61</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://rustwasm.github.io/wasm-bindgen/api/web_sys/</url>
+        </reference>
+        <reference type="website">
+          <url>https://rustwasm.github.io/wasm-bindgen/web-sys/index.html</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rustwasm/wasm-bindgen/tree/master/crates/web-sys</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/winapi@0.3.9">
+      <name>winapi</name>
+      <version>0.3.9</version>
+      <description>Raw FFI bindings for all of Windows API.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/winapi@0.3.9</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/winapi/</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/retep998/winapi-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/winapi-i686-pc-windows-gnu@0.4.0">
+      <name>winapi-i686-pc-windows-gnu</name>
+      <version>0.4.0</version>
+      <description>Import libraries for the i686-pc-windows-gnu target. Please don't use this crate directly, depend on winapi instead.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/winapi-i686-pc-windows-gnu@0.4.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/retep998/winapi-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/winapi-x86_64-pc-windows-gnu@0.4.0">
+      <name>winapi-x86_64-pc-windows-gnu</name>
+      <version>0.4.0</version>
+      <description>Import libraries for the x86_64-pc-windows-gnu target. Please don't use this crate directly, depend on winapi instead.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/winapi-x86_64-pc-windows-gnu@0.4.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/retep998/winapi-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows-sys@0.42.0">
+      <name>windows-sys</name>
+      <version>0.42.0</version>
+      <description>Rust for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows-sys@0.42.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows-sys@0.45.0">
+      <name>windows-sys</name>
+      <version>0.45.0</version>
+      <description>Rust for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows-sys@0.45.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows-sys@0.48.0">
+      <name>windows-sys</name>
+      <version>0.48.0</version>
+      <description>Rust for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows-sys@0.48.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows-targets@0.42.2">
+      <name>windows-targets</name>
+      <version>0.42.2</version>
+      <description>Import libs for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows-targets@0.42.2</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows-targets@0.48.0">
+      <name>windows-targets</name>
+      <version>0.48.0</version>
+      <description>Import libs for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows-targets@0.48.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows_aarch64_gnullvm@0.42.2">
+      <name>windows_aarch64_gnullvm</name>
+      <version>0.42.2</version>
+      <description>Import lib for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows_aarch64_gnullvm@0.42.2</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows_aarch64_gnullvm@0.48.0">
+      <name>windows_aarch64_gnullvm</name>
+      <version>0.48.0</version>
+      <description>Import lib for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows_aarch64_gnullvm@0.48.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows_aarch64_msvc@0.42.2">
+      <name>windows_aarch64_msvc</name>
+      <version>0.42.2</version>
+      <description>Import lib for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows_aarch64_msvc@0.42.2</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows_aarch64_msvc@0.48.0">
+      <name>windows_aarch64_msvc</name>
+      <version>0.48.0</version>
+      <description>Import lib for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows_aarch64_msvc@0.48.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows_i686_gnu@0.42.2">
+      <name>windows_i686_gnu</name>
+      <version>0.42.2</version>
+      <description>Import lib for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows_i686_gnu@0.42.2</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows_i686_gnu@0.48.0">
+      <name>windows_i686_gnu</name>
+      <version>0.48.0</version>
+      <description>Import lib for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows_i686_gnu@0.48.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows_i686_msvc@0.42.2">
+      <name>windows_i686_msvc</name>
+      <version>0.42.2</version>
+      <description>Import lib for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows_i686_msvc@0.42.2</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows_i686_msvc@0.48.0">
+      <name>windows_i686_msvc</name>
+      <version>0.48.0</version>
+      <description>Import lib for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows_i686_msvc@0.48.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows_x86_64_gnu@0.42.2">
+      <name>windows_x86_64_gnu</name>
+      <version>0.42.2</version>
+      <description>Import lib for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows_x86_64_gnu@0.42.2</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows_x86_64_gnu@0.48.0">
+      <name>windows_x86_64_gnu</name>
+      <version>0.48.0</version>
+      <description>Import lib for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows_x86_64_gnu@0.48.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows_x86_64_gnullvm@0.42.2">
+      <name>windows_x86_64_gnullvm</name>
+      <version>0.42.2</version>
+      <description>Import lib for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows_x86_64_gnullvm@0.42.2</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows_x86_64_gnullvm@0.48.0">
+      <name>windows_x86_64_gnullvm</name>
+      <version>0.48.0</version>
+      <description>Import lib for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows_x86_64_gnullvm@0.48.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows_x86_64_msvc@0.42.2">
+      <name>windows_x86_64_msvc</name>
+      <version>0.42.2</version>
+      <description>Import lib for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows_x86_64_msvc@0.42.2</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/windows_x86_64_msvc@0.48.0">
+      <name>windows_x86_64_msvc</name>
+      <version>0.48.0</version>
+      <description>Import lib for Windows</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/windows_x86_64_msvc@0.48.0</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/microsoft/windows-rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/winreg@0.10.1">
+      <name>winreg</name>
+      <version>0.10.1</version>
+      <description>Rust bindings to MS Windows Registry API</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/winreg@0.10.1</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/winreg</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/gentoo90/winreg-rs</url>
         </reference>
       </externalReferences>
     </component>
