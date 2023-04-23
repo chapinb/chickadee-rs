@@ -12,9 +12,21 @@ fn resolve_ip_addresses(ip_addresses: Vec<IpAddr>, columns: Option<Vec<String>>)
         .collect()
 }
 
-fn print_records(ip_records: Vec<String>) {
+fn print_records(ip_records: Vec<String>, columns: Option<Vec<String>>) {
     for ip_record in ip_records {
-        println!("{}", ip_record);
+        if let Some(ref cols) = columns {
+            // Filter the record to only contain the requested columns
+            let record = ip_record.parse::<serde_json::Value>().unwrap();
+            let mut new_record = serde_json::Map::new();
+            for (key, value) in record.as_object().unwrap() {
+                if cols.contains(key) {
+                    new_record.insert(key.to_string(), value.clone());
+                }
+            }
+            println!("{}", serde_json::to_string(&new_record).unwrap());
+        } else {
+            println!("{}", ip_record);
+        }
     }
 }
 
@@ -58,6 +70,7 @@ struct Cli {
 fn main() {
     // Parse CLI arguments
     let cli = Cli::parse();
+    let columns = cli.columns.map(|s| s.split(',').map(|s| s.to_string()).collect());
 
     // Extract IP addresses
     let extractor = Extractor::new(cli.ips);
@@ -66,12 +79,11 @@ fn main() {
     // Resolve IP addresses
     let ip_records = resolve_ip_addresses(
         ip_addresses,
-        cli.columns
-            .map(|s| s.split(',').map(|s| s.to_string()).collect()),
+        columns.clone(),
     );
 
     // Print IP records
-    print_records(ip_records);
+    print_records(ip_records, columns);
 }
 
 #[cfg(test)]
