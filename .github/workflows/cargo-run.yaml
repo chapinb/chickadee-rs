@@ -1,0 +1,31 @@
+on: [push, pull_request]
+
+name: CI - cargo checkmate
+
+jobs:
+  cargo-checkmate:
+    name: cargo-checkmate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/advisory-db/
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      # Run select columns for a list of IPs
+      - run: cargo run -- --ips 1.1.1.1,2.2.2.2,8.8.8.8 --columns query,lat,lon,countryCode,as,asname,city,continent,proxy
+      # Run select columns for a list of IPs from a file
+      - run: cargo run -- --ips test_data/test.ips.txt --columns query,lat,lon,countryCode,as,asname,city,continent,proxy
+      # Run all columns for a single IP
+      - run: cargo run --ips 8.8.4.4
