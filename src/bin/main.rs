@@ -98,8 +98,14 @@ fn main() {
         .map(|s| s.split(',').map(|s| s.to_string()).collect());
 
     // Extract IP addresses
-    let extractor = Extractor::new(cli.ips);
-    let ip_addresses = extractor.extract().unwrap();
+    let extractor = Extractor::new(cli.ips.clone());
+    let ip_addresses = match extractor.extract() {
+        Ok(ip_addresses) => ip_addresses,
+        Err(e) => {
+            eprintln!("Error while extracting IP addresses from {}: {}", cli.ips, e);
+            std::process::exit(1);
+        }
+    };
 
     // Resolve IP addresses
     let ip_records = match resolve_ip_addresses(ip_addresses, columns.clone()) {
