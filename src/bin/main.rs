@@ -100,14 +100,18 @@ fn main() {
         .columns
         .map(|s| s.split(',').map(|s| s.to_string()).collect());
 
+    run_chickadee(cli.ips, columns);
+}
+
+fn run_chickadee(ips: String, columns: Option<Vec<String>>) {
     // Extract IP addresses
-    let extractor = Extractor::new(cli.ips.clone());
+    let extractor = Extractor::new(ips.clone());
     let ip_addresses = match extractor.extract() {
         Ok(ip_addresses) => ip_addresses,
         Err(e) => {
             eprintln!(
                 "Error while extracting IP addresses from {}: {}",
-                cli.ips, e
+                ips, e
             );
             std::process::exit(1);
         }
