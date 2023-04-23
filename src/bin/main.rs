@@ -100,34 +100,39 @@ fn main() {
         .columns
         .map(|s| s.split(',').map(|s| s.to_string()).collect());
 
-    run_chickadee(cli.ips, columns);
+    match run_chickadee(cli.ips, columns) {
+        Ok(_) => (),
+        Err(e) => eprintln!("Exiting due to error: {}", e),
+    };
 }
 
-fn run_chickadee(ips: String, columns: Option<Vec<String>>) {
+fn run_chickadee(ips: String, columns: Option<Vec<String>>) -> Result<()> {
     // Extract IP addresses
     let extractor = Extractor::new(ips.clone());
     let ip_addresses = match extractor.extract() {
-        Ok(ip_addresses) => ip_addresses,
+        Ok(ip_addresses) => Ok(ip_addresses),
         Err(e) => {
             eprintln!(
                 "Error while extracting IP addresses from {}: {}",
                 ips, e
             );
-            std::process::exit(1);
+            Err(e)
         }
-    };
+    }?;
 
     // Resolve IP addresses
     let ip_records = match resolve_ip_addresses(ip_addresses, columns.clone()) {
-        Ok(ip_records) => ip_records,
+        Ok(ip_records) => Ok(ip_records),
         Err(e) => {
             eprintln!("Error during resolution: {}", e);
-            std::process::exit(1);
+            Err(e)
         }
-    };
+    }?;
 
     // Print IP records
     print_records(ip_records, columns);
+
+    Ok(())
 }
 
 #[cfg(test)]
@@ -166,5 +171,29 @@ mod tests {
 
         assert!(ip_addresses.is_ok());
         assert!(ip_addresses.unwrap().len() == 3);
+    }
+
+    #[test]
+    fn test_run_chickadee_str() {
+        let ips = "1.1.1.1,2.2.2.2\t3.3.3.3\n4.4.4.4".to_string();
+        let columns = Some(vec!["countryCode".to_string(), "query".to_string()]);
+        let res = run_chickadee(ips, columns);
+        assert!(res.is_ok());
+    }
+
+    #[test]
+    fn test_run_chickadee_file() {        // Create a new temporary text file
+        let mut temp_path = NamedTempFile::new().unwrap();
+        temp_path
+            .write_fmt(format_args!(
+                "{},{},\t{}\n{}",
+                "1.1.1.1", "2.2.2.2", "4", "3.3.3.3"
+            ))
+            .unwrap();
+
+        let ips = temp_path.path().to_string_lossy().to_string();
+        let columns = Some(vec!["countryCode".to_string(), "query".to_string()]);
+        let res = run_chickadee(ips, columns);
+        assert!(res.is_ok());
     }
 }
