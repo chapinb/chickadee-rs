@@ -18,16 +18,36 @@ fn resolve_ip_addresses(
 fn print_records(ip_records: Vec<String>, columns: Option<Vec<String>>) {
     for ip_record in ip_records {
         if let Some(ref cols) = columns {
-            // Filter the record to only contain the requested columns
-            let record = ip_record.parse::<serde_json::Value>().unwrap();
-            let mut new_record = serde_json::Map::new();
-            for (key, value) in record.as_object().unwrap() {
-                if cols.contains(key) {
-                    new_record.insert(key.to_string(), value.clone());
+            // If we have columns
+            if let Ok(record) = ip_record.parse::<serde_json::Value>() {
+                // And if we can parse the record as a JSON object
+                // Setup a new filtered record
+                let mut new_record = serde_json::Map::new();
+
+                // Convert the record to a map
+                let rec = match record.as_object() {
+                    Some(rec) => rec,
+                    None => {
+                        eprintln!("Error parsing JSON object: {}", ip_record);
+                        continue;
+                    }
+                };
+
+                // Iterate over the columns and add them to the new record
+                for (key, value) in rec {
+                    if cols.contains(key) {
+                        new_record.insert(key.to_string(), value.clone());
+                    }
                 }
+                // Print the filtered record
+                println!("{}", serde_json::to_string(&new_record).unwrap());
+            } else {
+                // Print an error to stderr if we can't parse the record
+                eprintln!("Error parsing JSON object: {}", ip_record);
+                continue;
             }
-            println!("{}", serde_json::to_string(&new_record).unwrap());
         } else {
+            // Print the whole record
             println!("{}", ip_record);
         }
     }
