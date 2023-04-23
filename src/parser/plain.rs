@@ -5,7 +5,7 @@ use std::path::Path;
 use crate::util::get_all_ips;
 
 pub fn parse_text_file(file_path: &Path) -> Vec<IpAddr> {
-    let file_content = fs::read_to_string(file_path.to_str().unwrap());
+    let file_content = fs::read_to_string(file_path);
     get_all_ips(file_content.unwrap().as_str())
 }
 
