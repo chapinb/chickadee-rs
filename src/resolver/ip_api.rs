@@ -1,5 +1,6 @@
 use anyhow::Result;
 use serde::{Deserialize, Serialize};
+use serde::ser::{SerializeStruct};
 use serde_json::Value;
 use std::net::IpAddr;
 
@@ -13,7 +14,7 @@ impl IpApiRecords {
     }
 }
 
-#[derive(Deserialize, Serialize)]
+#[derive(Deserialize)]
 pub struct IpApiRecord {
     pub query: Option<String>,
     pub status: Option<String>,
@@ -106,6 +107,39 @@ impl IpApiRecord {
             proxy: value.get("proxy").and_then(|v| v.as_bool()),
             hosting: value.get("hosting").and_then(|v| v.as_bool()),
         }
+    }
+}
+
+
+impl Serialize for IpApiRecord {
+    fn serialize<S>(&self, serializer: S) -> std::result::Result<S::Ok, S::Error>
+        where
+            S: serde::Serializer {
+        let mut state = serializer.serialize_struct("IpApiRecord", 20)?;
+        state.serialize_field("query", &self.query)?;
+        state.serialize_field("status", &self.status)?;
+        state.serialize_field("continent", &self.continent)?;
+        state.serialize_field("continentCode", &self.continent_code)?;
+        state.serialize_field("country", &self.country)?;
+        state.serialize_field("countryCode", &self.country_code)?;
+        state.serialize_field("region", &self.region)?;
+        state.serialize_field("region_name", &self.region_name)?;
+        state.serialize_field("city", &self.city)?;
+        state.serialize_field("district", &self.district)?;
+        state.serialize_field("zip", &self.zip)?;
+        state.serialize_field("lat", &self.lat)?;
+        state.serialize_field("lon", &self.lon)?;
+        state.serialize_field("timezone", &self.timezone)?;
+        state.serialize_field("offset", &self.offset)?;
+        state.serialize_field("currency", &self.currency)?;
+        state.serialize_field("isp", &self.isp)?;
+        state.serialize_field("org", &self.org)?;
+        state.serialize_field("as", &self.asn)?;
+        state.serialize_field("asname", &self.asname)?;
+        state.serialize_field("mobile", &self.mobile)?;
+        state.serialize_field("proxy", &self.proxy)?;
+        state.serialize_field("hosting", &self.hosting)?;
+        state.end()
     }
 }
 

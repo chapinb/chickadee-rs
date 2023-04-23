@@ -84,11 +84,11 @@ mod tests {
     #[test]
     fn test_resolve_ip_addresses() {
         let ip_addresses = vec![IpAddr::V4(Ipv4Addr::new(1, 1, 1, 1))];
-        let columns = Some(vec!["country_code".to_string(), "query".to_string()]);
+        let columns = Some(vec!["countryCode".to_string(), "query".to_string()]);
         let ip_records = resolve_ip_addresses(ip_addresses, columns);
 
         assert_eq!(1, ip_records.len());
-        assert!(ip_records[0].contains("country_code"));
+        assert!(ip_records[0].contains("countryCode"));
         assert!(ip_records[0].contains("1.1.1.1"));
     }
 
