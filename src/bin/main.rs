@@ -19,7 +19,8 @@ struct Extractor {
 }
 
 impl Extractor {
-    fn new(source: String, is_file: bool) -> Self {
+    fn new(source: String) -> Self {
+        let is_file = Path::new(&source).exists();
         Self { source, is_file }
     }
 
@@ -95,7 +96,7 @@ mod tests {
             .unwrap();
 
         // Pass this file into
-        let extractor = Extractor::new(temp_path.path().to_string_lossy().to_string(), true);
+        let extractor = Extractor::new(temp_path.path().to_string_lossy().to_string());
         let ip_addresses = extractor.extract();
 
         assert!(ip_addresses.is_ok());
