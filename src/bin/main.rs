@@ -8,7 +8,9 @@ fn resolve_ip_addresses(ip_addresses: Vec<IpAddr>, columns: Option<Vec<String>>)
     ip_records
         .records
         .iter()
-        .map(|record| serde_json::to_string(record).unwrap())
+        .map(|record| serde_json::to_string(record).ok()) // TODO Log any failures in serializations
+        .filter(|record| record.is_some()) // Filter out any failed JSON serializations
+        .map(|record| record.unwrap()) // Safe to unwrap because we filtered out None values
         .collect()
 }
 
