@@ -40,7 +40,7 @@ pub fn get_all_ipv4(data: &str) -> Vec<IpAddr> {
             substr.parse::<Ipv4Addr>().ok()
         })
         .filter(|x| x.is_some())
-        .map(|x| IpAddr::V4(x.unwrap()))
+        .map(|x| IpAddr::V4(x.unwrap()))  // It is safe to use unwrap, as we are filtering .is_some() above
         .collect::<Vec<_>>()
 }
 
