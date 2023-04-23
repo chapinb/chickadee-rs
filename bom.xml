@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bom xmlns="http://cyclonedx.org/schema/bom/1.3" serialNumber="urn:uuid:7f376325-d404-45f3-b829-a569e73f8dba" version="1">
+  <metadata>
+    <timestamp>2023-04-23T17:24:27.721968449Z</timestamp>
+    <tools>
+      <tool>
+        <vendor>CycloneDX</vendor>
+        <name>cargo-cyclonedx</name>
+        <version>0.3.7</version>
+      </tool>
+    </tools>
+    <component type="application" bom-ref="pkg:cargo/chickadee@0.1.0">
+      <name>chickadee</name>
+      <version>0.1.0</version>
+      <scope>required</scope>
+      <purl>pkg:cargo/chickadee@0.1.0</purl>
+    </component>
+  </metadata>
+  <components>
+    <component type="library" bom-ref="pkg:cargo/anyhow@1.0.70">
+      <name>anyhow</name>
+      <version>1.0.70</version>
+      <description>Flexible concrete Error type built on std::error::Error</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/anyhow@1.0.70</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/anyhow</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/dtolnay/anyhow</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/clap@4.2.2">
+      <name>clap</name>
+      <version>4.2.2</version>
+      <description>A simple to use, efficient, and full-featured Command Line Argument Parser</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/clap@4.2.2</purl>
+      <externalReferences>
+        <reference type="vcs">
+          <url>https://github.com/clap-rs/clap</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/lazy_static@1.4.0">
+      <name>lazy_static</name>
+      <version>1.4.0</version>
+      <description>A macro for declaring lazily evaluated statics in Rust.</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/lazy_static@1.4.0</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/lazy_static</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-lang-nursery/lazy-static.rs</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/regex@1.7.3">
+      <name>regex</name>
+      <version>1.7.3</version>
+      <description>An implementation of regular expressions for Rust. This implementation uses finite automata and guarantees linear time matching on all inputs. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/regex@1.7.3</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/regex</url>
+        </reference>
+        <reference type="website">
+          <url>https://github.com/rust-lang/regex</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/rust-lang/regex</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/reqwest@0.11.16">
+      <name>reqwest</name>
+      <version>0.11.16</version>
+      <description>higher level HTTP client library</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/reqwest@0.11.16</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/reqwest</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/seanmonstar/reqwest</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/serde@1.0.160">
+      <name>serde</name>
+      <version>1.0.160</version>
+      <description>A generic serialization/deserialization framework</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/serde@1.0.160</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/serde</url>
+        </reference>
+        <reference type="website">
+          <url>https://serde.rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/serde-rs/serde</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/serde_json@1.0.96">
+      <name>serde_json</name>
+      <version>1.0.96</version>
+      <description>A JSON serialization file format</description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT OR Apache-2.0</expression>
+      </licenses>
+      <purl>pkg:cargo/serde_json@1.0.96</purl>
+      <externalReferences>
+        <reference type="documentation">
+          <url>https://docs.rs/serde_json</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/serde-rs/json</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library" bom-ref="pkg:cargo/tokio@1.27.0">
+      <name>tokio</name>
+      <version>1.27.0</version>
+      <description>An event-driven, non-blocking I/O platform for writing asynchronous I/O backed applications. </description>
+      <scope>required</scope>
+      <licenses>
+        <expression>MIT</expression>
+      </licenses>
+      <purl>pkg:cargo/tokio@1.27.0</purl>
+      <externalReferences>
+        <reference type="website">
+          <url>https://tokio.rs</url>
+        </reference>
+        <reference type="vcs">
+          <url>https://github.com/tokio-rs/tokio</url>
+        </reference>
+      </externalReferences>
+    </component>
+  </components>
+</bom>
