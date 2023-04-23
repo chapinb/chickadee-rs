@@ -112,10 +112,7 @@ fn run_chickadee(ips: String, columns: Option<Vec<String>>) -> Result<()> {
     let ip_addresses = match extractor.extract() {
         Ok(ip_addresses) => Ok(ip_addresses),
         Err(e) => {
-            eprintln!(
-                "Error while extracting IP addresses from {}: {}",
-                ips, e
-            );
+            eprintln!("Error while extracting IP addresses from {}: {}", ips, e);
             Err(e)
         }
     }?;
@@ -182,7 +179,8 @@ mod tests {
     }
 
     #[test]
-    fn test_run_chickadee_file() {        // Create a new temporary text file
+    fn test_run_chickadee_file() {
+        // Create a new temporary text file
         let mut temp_path = NamedTempFile::new().unwrap();
         temp_path
             .write_fmt(format_args!(
