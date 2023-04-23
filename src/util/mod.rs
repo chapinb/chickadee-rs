@@ -60,7 +60,7 @@ fn get_all_ipv6(data: &str) -> Vec<IpAddr> {
             substr.parse::<Ipv6Addr>().ok()
         })
         .filter(|x| x.is_some())
-        .map(|x| IpAddr::V6(x.unwrap()))
+        .map(|x| IpAddr::V6(x.unwrap())) // It is safe to use unwrap, as we are filtering .is_some() above
         .collect::<Vec<_>>()
 }
 
