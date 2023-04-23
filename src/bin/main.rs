@@ -15,11 +15,14 @@ fn resolve_ip_addresses(ip_addresses: Vec<IpAddr>, columns: Option<Vec<String>>)
 #[derive(Parser)]
 #[clap(author, version, about, long_about = None)]
 struct Cli {
-    /// Get the IP addresses to resolve from CLI arguments using clap
+    /// Get the IP addresses to resolve from CLI arguments using clap.
+    /// This may be a delimited string or a file path to a text file
+    /// containing one or more IP addresses.
     #[clap(long)]
     ip: IpAddr,
 
-    /// Allow user to specify which columns to use
+    /// Allow user to specify which columns to select in the GeoIP resolution.
+    /// Currently only supports the columns found in ip-api.com
     #[clap(long)]
     columns: Option<String>,
 }
