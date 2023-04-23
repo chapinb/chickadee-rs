@@ -27,9 +27,12 @@ pub fn get_all_ips(data: &str) -> Vec<IpAddr> {
 
 pub fn get_all_ipv4(data: &str) -> Vec<IpAddr> {
     lazy_static! {
-        static ref IPV4: Regex = Regex::new(
+        static ref IPV4: Regex = match Regex::new(
             r"(?:(?:(?:25[0-5]|(?:2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(?:25[0-5]|(?:2[0-4]|1{0,1}[0-9]){0,1}[0-9]))"
-        ).unwrap();
+        ) {
+            Ok(x) => x,
+            Err(e) => panic!("Unanble to generate IPv4 pattern: {}", e),
+        };
     }
     IPV4.find_iter(data)
         .map(|x| {
