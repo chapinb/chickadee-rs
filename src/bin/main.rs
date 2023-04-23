@@ -3,7 +3,10 @@ use clap::{self, Parser};
 use libchickadee::{parser::plain::parse_text_file, resolver::ip_api::Resolver, util::get_all_ips};
 use std::{net::IpAddr, path::Path};
 
-fn resolve_ip_addresses(ip_addresses: Vec<IpAddr>, columns: Option<Vec<String>>) -> Result<Vec<String>> {
+fn resolve_ip_addresses(
+    ip_addresses: Vec<IpAddr>,
+    columns: Option<Vec<String>>,
+) -> Result<Vec<String>> {
     let ip_records = Resolver::new(columns).resolve(ip_addresses)?;
     Ok(ip_records
         .records
