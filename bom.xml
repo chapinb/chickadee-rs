@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<bom xmlns="http://cyclonedx.org/schema/bom/1.3" serialNumber="urn:uuid:69404076-8cac-4970-903a-6627da96be69" version="1">
+<bom xmlns="http://cyclonedx.org/schema/bom/1.3" serialNumber="urn:uuid:e9853e14-e684-4ad9-98dc-f1248c8634b6" version="1">
   <metadata>
-    <timestamp>2023-04-23T17:57:26.963844831Z</timestamp>
+    <timestamp>2023-04-23T18:13:12.565695742Z</timestamp>
     <tools>
       <tool>
         <vendor>CycloneDX</vendor>
@@ -1166,21 +1166,6 @@
         </reference>
       </externalReferences>
     </component>
-    <component type="library" bom-ref="pkg:cargo/lock_api@0.4.9">
-      <name>lock_api</name>
-      <version>0.4.9</version>
-      <description>Wrappers to create fully-featured Mutex and RwLock types. Compatible with no_std.</description>
-      <scope>required</scope>
-      <licenses>
-        <expression>MIT OR Apache-2.0</expression>
-      </licenses>
-      <purl>pkg:cargo/lock_api@0.4.9</purl>
-      <externalReferences>
-        <reference type="vcs">
-          <url>https://github.com/Amanieu/parking_lot</url>
-        </reference>
-      </externalReferences>
-    </component>
     <component type="library" bom-ref="pkg:cargo/log@0.4.17">
       <name>log</name>
       <version>0.4.17</version>
@@ -1389,36 +1374,6 @@
         </reference>
       </externalReferences>
     </component>
-    <component type="library" bom-ref="pkg:cargo/parking_lot@0.12.1">
-      <name>parking_lot</name>
-      <version>0.12.1</version>
-      <description>More compact and efficient implementations of the standard synchronization primitives.</description>
-      <scope>required</scope>
-      <licenses>
-        <expression>MIT OR Apache-2.0</expression>
-      </licenses>
-      <purl>pkg:cargo/parking_lot@0.12.1</purl>
-      <externalReferences>
-        <reference type="vcs">
-          <url>https://github.com/Amanieu/parking_lot</url>
-        </reference>
-      </externalReferences>
-    </component>
-    <component type="library" bom-ref="pkg:cargo/parking_lot_core@0.9.7">
-      <name>parking_lot_core</name>
-      <version>0.9.7</version>
-      <description>An advanced API for creating custom synchronization primitives.</description>
-      <scope>required</scope>
-      <licenses>
-        <expression>MIT OR Apache-2.0</expression>
-      </licenses>
-      <purl>pkg:cargo/parking_lot_core@0.9.7</purl>
-      <externalReferences>
-        <reference type="vcs">
-          <url>https://github.com/Amanieu/parking_lot</url>
-        </reference>
-      </externalReferences>
-    </component>
     <component type="library" bom-ref="pkg:cargo/percent-encoding@2.2.0">
       <name>percent-encoding</name>
       <version>2.2.0</version>
@@ -1518,24 +1473,6 @@
         </reference>
         <reference type="vcs">
           <url>https://github.com/dtolnay/quote</url>
-        </reference>
-      </externalReferences>
-    </component>
-    <component type="library" bom-ref="pkg:cargo/redox_syscall@0.2.16">
-      <name>redox_syscall</name>
-      <version>0.2.16</version>
-      <description>A Rust library to access raw Redox system calls</description>
-      <scope>required</scope>
-      <licenses>
-        <expression>MIT</expression>
-      </licenses>
-      <purl>pkg:cargo/redox_syscall@0.2.16</purl>
-      <externalReferences>
-        <reference type="documentation">
-          <url>https://docs.rs/redox_syscall</url>
-        </reference>
-        <reference type="vcs">
-          <url>https://gitlab.redox-os.org/redox-os/syscall</url>
         </reference>
       </externalReferences>
     </component>
@@ -1671,24 +1608,6 @@
         </reference>
       </externalReferences>
     </component>
-    <component type="library" bom-ref="pkg:cargo/scopeguard@1.1.0">
-      <name>scopeguard</name>
-      <version>1.1.0</version>
-      <description>A RAII scope guard that will run a given closure when it goes out of scope, even if the code between panics (assuming unwinding panic).  Defines the macros `defer!`, `defer_on_unwind!`, `defer_on_success!` as shorthands for guards with one of the implemented strategies. </description>
-      <scope>required</scope>
-      <licenses>
-        <expression>MIT OR Apache-2.0</expression>
-      </licenses>
-      <purl>pkg:cargo/scopeguard@1.1.0</purl>
-      <externalReferences>
-        <reference type="documentation">
-          <url>https://docs.rs/scopeguard/</url>
-        </reference>
-        <reference type="vcs">
-          <url>https://github.com/bluss/scopeguard</url>
-        </reference>
-      </externalReferences>
-    </component>
     <component type="library" bom-ref="pkg:cargo/security-framework@2.8.2">
       <name>security-framework</name>
       <version>2.8.2</version>
@@ -1809,24 +1728,6 @@
         </reference>
       </externalReferences>
     </component>
-    <component type="library" bom-ref="pkg:cargo/signal-hook-registry@1.4.1">
-      <name>signal-hook-registry</name>
-      <version>1.4.1</version>
-      <description>Backend crate for signal-hook</description>
-      <scope>required</scope>
-      <licenses>
-        <expression>Apache-2.0 OR MIT</expression>
-      </licenses>
-      <purl>pkg:cargo/signal-hook-registry@1.4.1</purl>
-      <externalReferences>
-        <reference type="documentation">
-          <url>https://docs.rs/signal-hook-registry</url>
-        </reference>
-        <reference type="vcs">
-          <url>https://github.com/vorner/signal-hook</url>
-        </reference>
-      </externalReferences>
-    </component>
     <component type="library" bom-ref="pkg:cargo/slab@0.4.8">
       <name>slab</name>
       <version>0.4.8</version>
@@ -1839,24 +1740,6 @@
       <externalReferences>
         <reference type="vcs">
           <url>https://github.com/tokio-rs/slab</url>
-        </reference>
-      </externalReferences>
-    </component>
-    <component type="library" bom-ref="pkg:cargo/smallvec@1.10.0">
-      <name>smallvec</name>
-      <version>1.10.0</version>
-      <description>'Small vector' optimization: store up to a small number of items on the stack</description>
-      <scope>required</scope>
-      <licenses>
-        <expression>MIT OR Apache-2.0</expression>
-      </licenses>
-      <purl>pkg:cargo/smallvec@1.10.0</purl>
-      <externalReferences>
-        <reference type="documentation">
-          <url>https://docs.rs/smallvec/</url>
-        </reference>
-        <reference type="vcs">
-          <url>https://github.com/servo/rust-smallvec</url>
         </reference>
       </externalReferences>
     </component>
@@ -1998,24 +1881,6 @@
         <expression>MIT</expression>
       </licenses>
       <purl>pkg:cargo/tokio@1.27.0</purl>
-      <externalReferences>
-        <reference type="website">
-          <url>https://tokio.rs</url>
-        </reference>
-        <reference type="vcs">
-          <url>https://github.com/tokio-rs/tokio</url>
-        </reference>
-      </externalReferences>
-    </component>
-    <component type="library" bom-ref="pkg:cargo/tokio-macros@2.0.0">
-      <name>tokio-macros</name>
-      <version>2.0.0</version>
-      <description>Tokio's proc macros. </description>
-      <scope>required</scope>
-      <licenses>
-        <expression>MIT</expression>
-      </licenses>
-      <purl>pkg:cargo/tokio-macros@2.0.0</purl>
       <externalReferences>
         <reference type="website">
           <url>https://tokio.rs</url>
