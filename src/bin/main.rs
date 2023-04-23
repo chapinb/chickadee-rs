@@ -3,13 +3,13 @@ use clap::{self, Parser};
 use libchickadee::{parser::plain::parse_text_file, resolver::ip_api::Resolver, util::get_all_ips};
 use std::{net::IpAddr, path::Path};
 
-fn resolve_ip_addresses(ip_addresses: Vec<IpAddr>, columns: Option<Vec<String>>) -> Vec<String> {
-    let ip_records = Resolver::new(columns).resolve(ip_addresses).unwrap();
-    ip_records
+fn resolve_ip_addresses(ip_addresses: Vec<IpAddr>, columns: Option<Vec<String>>) -> Result<Vec<String>> {
+    let ip_records = Resolver::new(columns).resolve(ip_addresses)?;
+    Ok(ip_records
         .records
         .iter()
         .filter_map(|record| serde_json::to_string(record).ok())
-        .collect()
+        .collect())
 }
 
 fn print_records(ip_records: Vec<String>, columns: Option<Vec<String>>) {
@@ -79,7 +79,13 @@ fn main() {
     let ip_addresses = extractor.extract().unwrap();
 
     // Resolve IP addresses
-    let ip_records = resolve_ip_addresses(ip_addresses, columns.clone());
+    let ip_records = match resolve_ip_addresses(ip_addresses, columns.clone()) {
+        Ok(ip_records) => ip_records,
+        Err(e) => {
+            eprintln!("Error during resolution: {}", e);
+            std::process::exit(1);
+        }
+    };
 
     // Print IP records
     print_records(ip_records, columns);
@@ -98,9 +104,10 @@ mod tests {
         let columns = Some(vec!["countryCode".to_string(), "query".to_string()]);
         let ip_records = resolve_ip_addresses(ip_addresses, columns);
 
-        assert_eq!(1, ip_records.len());
-        assert!(ip_records[0].contains("countryCode"));
-        assert!(ip_records[0].contains("1.1.1.1"));
+        assert!(ip_records.is_ok());
+        assert_eq!(1, ip_records.as_ref().unwrap().len());
+        assert!(ip_records.as_ref().unwrap()[0].contains("countryCode"));
+        assert!(ip_records.as_ref().unwrap()[0].contains("1.1.1.1"));
     }
 
     #[test]
