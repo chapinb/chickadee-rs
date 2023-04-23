@@ -55,14 +55,14 @@ impl Extractor {
 #[derive(Parser)]
 #[clap(author, version, about, long_about = None)]
 struct Cli {
-    /// Get the IP addresses to resolve from CLI arguments using clap.
+    /// IP addresses to resolve from CLI arguments using clap.
     /// This may be a delimited string or a file path to a text file
     /// containing one or more IP addresses.
     #[clap(long)]
     ips: String,
 
-    /// Allow user to specify which columns to select in the GeoIP resolution.
-    /// Currently only supports the columns found in ip-api.com
+    /// Specify which columns to select in the GeoIP resolution.
+    /// Currently only supports the columns for ip-api.com.
     #[clap(long)]
     columns: Option<String>,
 }
