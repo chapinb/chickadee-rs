@@ -5,7 +5,7 @@ use std::io::Read;
 use std::net::IpAddr;
 use std::path::Path;
 
-fn gunzip(file_path: &Path) -> Result<Vec<IpAddr>> {
+fn parse_gzip_file(file_path: &Path) -> Result<Vec<IpAddr>> {
     let mut file = flate2::read::GzDecoder::new(std::fs::File::open(file_path)?);
     let mut buffer = Vec::with_capacity(8192);
     file.read_to_end(&mut buffer).unwrap();
@@ -35,7 +35,7 @@ mod tests {
         file.finish().unwrap();
 
         // Run test
-        let res = gunzip(file_path.path());
+        let res = parse_gzip_file(file_path.path());
         assert!(res.is_ok());
         let res = res.unwrap();
         assert_eq!(
