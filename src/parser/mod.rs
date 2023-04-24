@@ -6,13 +6,13 @@ use flate2::read::GzDecoder;
 use std::path::Path;
 
 #[derive(Debug, PartialEq)]
-enum SourceFileType {
+pub enum SourceFileType {
     NotAFile,
     Plain,
     Gzip,
 }
 
-fn determine_file_type(file_path: &Path) -> Result<SourceFileType> {
+pub fn determine_file_type(file_path: &Path) -> Result<SourceFileType> {
     if !file_path.exists() {
         return Ok(SourceFileType::NotAFile);
     }
