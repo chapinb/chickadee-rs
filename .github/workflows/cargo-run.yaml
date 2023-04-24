@@ -29,3 +29,5 @@ jobs:
       - run: cargo run -- --ips test_data/test.ips.txt --columns query,lat,lon,countryCode,as,asname,city,continent,proxy
       # Run all columns for a single IP
       - run: cargo run -- --ips 8.8.4.4
+      # Run select columns for a gzip file
+      - run: cargo run -- --ips test_data/test.ips.txt.gz --columns query,lat,lon,countryCode,as,asname,city,continent,proxy
