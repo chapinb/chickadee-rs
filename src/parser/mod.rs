@@ -6,23 +6,23 @@ use flate2::read::GzDecoder;
 use std::path::Path;
 
 #[derive(Debug, PartialEq)]
-enum FileType {
+enum SourceFileType {
     NotAFile,
     Plain,
     Gzip,
 }
 
-fn determine_file_type(file_path: &Path) -> Result<FileType> {
+fn determine_file_type(file_path: &Path) -> Result<SourceFileType> {
     if !file_path.exists() {
-        return Ok(FileType::NotAFile);
+        return Ok(SourceFileType::NotAFile);
     }
 
     let file = std::fs::File::open(file_path).unwrap();
 
     if flate2::read::GzDecoder::new(file).header().is_some() {
-        Ok(FileType::Gzip)
+        Ok(SourceFileType::Gzip)
     } else {
-        Ok(FileType::Plain)
+        Ok(SourceFileType::Plain)
     }
 }
 
@@ -46,9 +46,9 @@ mod tests {
 
         // Define subtests
         let tests = vec![
-            (Path::new(""), FileType::NotAFile),
-            (plain_text_file.path(), FileType::Plain),
-            (gzip_file.path(), FileType::Gzip),
+            (Path::new(""), SourceFileType::NotAFile),
+            (plain_text_file.path(), SourceFileType::Plain),
+            (gzip_file.path(), SourceFileType::Gzip),
         ];
 
         // Run tests
