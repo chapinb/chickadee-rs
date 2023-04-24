@@ -52,11 +52,10 @@ mod tests {
 
         let actual = determine_file_type(Path::new(plain_text_file.path()));
         assert_eq!(SourceFileType::Plain, actual.unwrap());
-     }
+    }
 
     #[test]
     fn test_determine_file_type_gzip() {
-
         // Setup gzip file
         let mut gzip_file = NamedTempFile::new().unwrap();
         flate2::write::GzEncoder::new(gzip_file.as_file_mut(), flate2::Compression::default())
