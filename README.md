@@ -3,6 +3,7 @@
 A rust implementation of [chickadee](https://github.com/chapinb/chickadee)
 
 [![CI|cargo checkmate](https://github.com/chapinb/chickadee-rs/actions/workflows/cargo-checkmate.yaml/badge.svg?branch=main)](https://github.com/chapinb/chickadee-rs/actions/workflows/cargo-checkmate.yaml)
+[![CI|cli run](https://github.com/chapinb/chickadee-rs/actions/workflows/cargo-run.yaml/badge.svg?branch=main)](https://github.com/chapinb/chickadee-rs/actions/workflows/cargo-run.yaml)
 
 ## ⚠️  WORK IN PROGRESS ⚠️
 

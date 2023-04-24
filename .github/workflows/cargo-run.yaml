@@ -1,6 +1,6 @@
 on: [push, pull_request]
 
-name: CI - cargo checkmate
+name: CI - Run CLI
 
 jobs:
   cargo-checkmate:
