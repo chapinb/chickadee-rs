@@ -2,8 +2,8 @@ pub mod compressed;
 pub mod plain;
 
 use anyhow::Result;
-use std::path::Path;
 use std::io::{Read, Seek};
+use std::path::Path;
 
 #[derive(Debug, PartialEq)]
 pub enum SourceFileType {
