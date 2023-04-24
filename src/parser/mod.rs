@@ -3,6 +3,7 @@ pub mod plain;
 
 use anyhow::Result;
 use std::path::Path;
+use std::io::{Read, Seek};
 
 #[derive(Debug, PartialEq)]
 pub enum SourceFileType {
@@ -16,11 +17,19 @@ pub fn determine_file_type(file_path: &Path) -> Result<SourceFileType> {
         return Ok(SourceFileType::NotAFile);
     }
 
-    let file = std::fs::File::open(file_path)?;
+    let mut file = std::fs::File::open(file_path)?;
+    // In the future we may need to extend this in order to handle
+    // new file formats that we have support for.
+    let mut header = [0u8; 3];
+    file.read_exact(&mut header)?;
+    file.seek(std::io::SeekFrom::Start(0))?;
 
-    if flate2::read::GzDecoder::new(file).header().is_some() {
+    if header == [0x1f, 0x8b, 0x08] {
+        // If the header matches the magic number, it's a gzip file
+        // Source: https://www.garykessler.net/library/file_sigs.html
         Ok(SourceFileType::Gzip)
     } else {
+        // Otherwise, we will treat it like a plain text file
         Ok(SourceFileType::Plain)
     }
 }
