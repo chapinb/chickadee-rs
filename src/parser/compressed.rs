@@ -1,19 +1,26 @@
+use std::net::IpAddr;
 use std::path::Path;
-use std::io::{Read, Write};
+use std::io::Read;
+use crate::util::get_all_ips;
 use anyhow::Result;
 use flate2;
 
-fn gunzip(file_path: &Path) -> Result<Vec<u8>> {
+fn gunzip(file_path: &Path) -> Result<Vec<IpAddr>> {
     let mut file = flate2::read::GzDecoder::new(std::fs::File::open(file_path)?);
     let mut buffer = Vec::with_capacity(8192);
     file.read_to_end(&mut buffer).unwrap();
-    Ok(buffer)
+
+    // Convert the buffer to a str
+    let contents = String::from_utf8(buffer)?;
+    Ok(get_all_ips(contents.as_str()))
 }
 
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::net::Ipv4Addr;
+    use std::io::Write;
     use tempfile::NamedTempFile;
     use flate2::Compression;
 
@@ -26,9 +33,9 @@ mod tests {
         file.finish().unwrap();
 
         // Run test
-        let buffer = gunzip(file_path.path());
-        assert!(buffer.is_ok());
-        let buffer = buffer.unwrap();
-        assert_eq!(b"1.1.1.1\n2.2.2.2", &buffer[..]);
+        let res = gunzip(file_path.path());
+        assert!(res.is_ok());
+        let res = res.unwrap();
+        assert_eq!(vec![IpAddr::V4(Ipv4Addr::new(1, 1, 1, 1)), IpAddr::V4(Ipv4Addr::new(2, 2, 2, 2))], res);
     }
 }
