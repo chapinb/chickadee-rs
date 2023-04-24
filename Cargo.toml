@@ -14,6 +14,7 @@ name = "libchickadee"
 [dependencies]
 anyhow = "1"
 clap = { version = "4", features = ["derive"] }
+flate2 = "1"
 lazy_static = "1"
 regex = "1"
 reqwest = { version = "0.11", features = ["json", "gzip", "deflate", "brotli", "blocking"] }
