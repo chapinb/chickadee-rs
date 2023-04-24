@@ -9,6 +9,11 @@ A rust implementation of [chickadee](https://github.com/chapinb/chickadee)
 
 This is under development. Please do not use.
 
+## Installation
+
+This crate is not yet available on crates.io. You can install it with
+`cargo install --git https://github.com/chapinb/chickadee-rs`
+
 ## Usage
 
 This is a command line application that extracts a collection of IP addresses from
