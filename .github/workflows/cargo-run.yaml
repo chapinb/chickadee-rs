@@ -3,8 +3,8 @@ on: [push, pull_request]
 name: CI - Run CLI
 
 jobs:
-  cargo-checkmate:
-    name: cargo-checkmate
+  cargo-cli:
+    name: cargo-cli
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
