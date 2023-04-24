@@ -2,7 +2,6 @@ pub mod compressed;
 pub mod plain;
 
 use anyhow::Result;
-use flate2::read::GzDecoder;
 use std::path::Path;
 
 #[derive(Debug, PartialEq)]
