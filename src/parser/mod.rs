@@ -1,2 +1,2 @@
-pub mod plain;
 pub mod compressed;
+pub mod plain;
