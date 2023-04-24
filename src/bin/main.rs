@@ -1,6 +1,8 @@
 use anyhow::Result;
 use clap::{self, Parser};
-use libchickadee::parser::{plain::parse_text_file, compressed::parse_gzip_file, determine_file_type, SourceFileType};
+use libchickadee::parser::{
+    compressed::parse_gzip_file, determine_file_type, plain::parse_text_file, SourceFileType,
+};
 use libchickadee::{resolver::ip_api::Resolver, util::get_all_ips};
 use std::{net::IpAddr, path::Path};
 
@@ -72,7 +74,7 @@ impl Extractor {
     fn extract(&self) -> Result<Vec<IpAddr>> {
         if !self.is_file {
             // This must be a string input
-            return Ok(get_all_ips(self.source.as_str()))
+            return Ok(get_all_ips(self.source.as_str()));
         }
 
         let source_path = Path::new(&self.source);
