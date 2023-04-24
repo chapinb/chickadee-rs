@@ -17,7 +17,7 @@ fn determine_file_type(file_path: &Path) -> Result<SourceFileType> {
         return Ok(SourceFileType::NotAFile);
     }
 
-    let file = std::fs::File::open(file_path).unwrap();
+    let file = std::fs::File::open(file_path)?;
 
     if flate2::read::GzDecoder::new(file).header().is_some() {
         Ok(SourceFileType::Gzip)
