@@ -12,7 +12,7 @@ pub enum SourceFileType {
 }
 
 pub fn determine_file_type(file_path: &Path) -> Result<SourceFileType> {
-    if !file_path.exists() {
+    if !file_path.exists() || file_path.is_dir() {
         return Ok(SourceFileType::NotAFile);
     }
 
@@ -32,10 +32,30 @@ mod tests {
     use tempfile::NamedTempFile;
 
     #[test]
-    fn test_determine_file_type() {
+    fn test_determine_file_type_str() {
+        let actual = determine_file_type(Path::new("not-a-file.txt")).unwrap();
+        assert_eq!(SourceFileType::NotAFile, actual);
+    }
+
+    #[test]
+    fn test_determine_file_type_dir() {
+        let source = tempfile::TempDir::new().unwrap();
+        let actual = determine_file_type(source.path()).unwrap();
+        assert_eq!(SourceFileType::NotAFile, actual);
+    }
+
+    #[test]
+    fn test_determine_file_type_plain() {
         // Setup plain text file
         let mut plain_text_file = NamedTempFile::new().unwrap();
         plain_text_file.write_all(b"1.1.1.1\n2.2.2.2").unwrap();
+
+        let actual = determine_file_type(Path::new(plain_text_file.path()));
+        assert_eq!(SourceFileType::Plain, actual.unwrap());
+     }
+
+    #[test]
+    fn test_determine_file_type_gzip() {
 
         // Setup gzip file
         let mut gzip_file = NamedTempFile::new().unwrap();
@@ -43,17 +63,7 @@ mod tests {
             .write_all(b"1.1.1.1\n2.2.2.2")
             .unwrap();
 
-        // Define subtests
-        let tests = vec![
-            (Path::new(""), SourceFileType::NotAFile),
-            (plain_text_file.path(), SourceFileType::Plain),
-            (gzip_file.path(), SourceFileType::Gzip),
-        ];
-
-        // Run tests
-        for test in tests {
-            let actual = determine_file_type(Path::new(test.0));
-            assert_eq!(test.1, actual.unwrap());
-        }
+        let actual = determine_file_type(Path::new(gzip_file.path()));
+        assert_eq!(SourceFileType::Gzip, actual.unwrap());
     }
 }
