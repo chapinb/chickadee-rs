@@ -8,6 +8,22 @@ A rust implementation of [chickadee](https://github.com/chapinb/chickadee)
 
 This is under development. Please do not use.
 
+## Usage
+
+This is a command line application that extracts a collection of IP addresses from
+a source and enriches them with the ip-api.com API.
+
+More APIs to come in the future.
+
+### Examples
+
+* One IP: `chickadee --ips 1.1.1.1`
+* Select a few columns: `chickadee --ips 1.1.1.1 --columns query,city,country`
+* Multiple IPs: `chickadee --ips "1.1.1.1,2.2.2.2 3.3.3.3    4.4.4.4"`
+  * Note: as long as they are delimited, they are likely to be detected and resolved.
+* A plain text file containing IPs: `chickadee --ips firewall.log`
+* A gzip file containing IPs: `chickadee --ips cloudtrail.log.gz`
+
 ## Development
 
 ## Testing
