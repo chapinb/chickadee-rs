@@ -17,3 +17,29 @@ repos:
     rev: v1.4.0
     hooks:
       - id: detect-secrets
+
+  - repo: local
+    hooks:
+      - id: cargo-fmt
+        name: cargo fmt
+        entry: cargo fmt
+        language: rust
+        pass_filenames: False
+
+      - id: cargo-test
+        name: cargo test
+        entry: cargo test
+        language: rust
+        pass_filenames: False
+
+      - id: cargo-clippy
+        name: cargo clippy
+        entry: cargo clippy
+        language: rust
+        pass_filenames: False
+
+      - id: cargo-check
+        name: cargo check
+        entry: cargo check
+        language: rust
+        pass_filenames: False
