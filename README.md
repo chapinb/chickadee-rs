@@ -34,6 +34,7 @@ More APIs to come in the future.
 
 After checking out this repository, run the following commands from the root:
 
+* Install cargo-checkmate: `cargo install cargo-checkmate`
 * Pre-commit install: `pre-commit install --install-hooks`
 * Pre-commit checks: `pre-commit run --all`
 * Rust tests: `cargo checkmate`
