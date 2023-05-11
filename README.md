@@ -32,6 +32,15 @@ More APIs to come in the future.
 
 ## Development
 
+After checking out this repository, run the following commands from the root:
+
+* Pre-commit install: `pre-commit install --install-hooks`
+* Pre-commit checks: `pre-commit run --all`
+* Rust tests: `cargo checkmate`
+
+Open a merge request for each new feature, keeping the commits and overall
+diffs as small as possible. Only submit one new feature per merge request.
+
 ## Testing
 
 You can run tests with `cargo test`. You may want to use `cargo watch -x test`
