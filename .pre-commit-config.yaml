@@ -26,9 +26,9 @@ repos:
         language: rust
         pass_filenames: False
 
-      - id: cargo-test
-        name: cargo test
-        entry: cargo test
+      - id: cargo-check
+        name: cargo check
+        entry: cargo check
         language: rust
         pass_filenames: False
 
@@ -38,8 +38,8 @@ repos:
         language: rust
         pass_filenames: False
 
-      - id: cargo-check
-        name: cargo check
-        entry: cargo check
+      - id: cargo-test
+        name: cargo test
+        entry: cargo test
         language: rust
         pass_filenames: False
