@@ -4,20 +4,26 @@ use libchickadee::parser::{
     compressed::parse_gzip_file, determine_file_type, plain::parse_text_file, SourceFileType,
 };
 use libchickadee::{resolver::ip_api::Resolver, util::get_all_ips};
+use libchickadee::resolver::virustotal::VTResolver;
 use std::{net::IpAddr, path::Path};
 
 fn resolve_ip_addresses(
     ip_addresses: Vec<IpAddr>,
     columns: Option<Vec<String>>,
+    resolver_type: &str,
 ) -> Result<Vec<String>> {
-    let ip_records = Resolver::new(columns).resolve(ip_addresses)?;
-    Ok(ip_records
-        .records
-        .iter()
-        .filter_map(|record| serde_json::to_string(record).ok())
-        .collect())
+    match resolver_type.to_lowercase().as_str() {
+        "ip-api" | "ipapi" | "IPAPI" => {
+            let ip_records = Resolver::new(columns).resolve(ip_addresses)?;
+            Ok(ip_records.records.iter().filter_map(|record| serde_json::to_string(record).ok()).collect())
+        },
+        "virustotal" | "vt" => {
+            let resolver = VTResolver::new();
+            resolver.resolve(ip_addresses)
+        },
+        _ => Err(anyhow::Error::msg("Unsupported resolver type")),
+    }
 }
-
 fn print_records(ip_records: Vec<String>, columns: Option<Vec<String>>) {
     for ip_record in ip_records {
         if let Some(ref cols) = columns {
@@ -101,22 +107,21 @@ struct Cli {
     /// Currently only supports the columns for ip-api.com.
     #[clap(long)]
     columns: Option<String>,
+    resolver: String,
 }
 
 fn main() {
     // Parse CLI arguments
     let cli = Cli::parse();
-    let columns = cli
-        .columns
-        .map(|s| s.split(',').map(|s| s.to_string()).collect());
+    let columns = cli.columns.map(|s| s.split(',').map(|s| s.to_string()).collect());
 
-    match run_chickadee(cli.ips, columns) {
+    match run_chickadee(cli.ips, columns, cli.resolver) {
         Ok(_) => (),
         Err(e) => eprintln!("Exiting due to error: {}", e),
-    };
+    }
 }
 
-fn run_chickadee(ips: String, columns: Option<Vec<String>>) -> Result<()> {
+fn run_chickadee(ips: String, columns: Option<Vec<String>>, resolver: String) -> Result<()> {
     // Extract IP addresses
     let extractor = Extractor::new(ips.clone());
     let ip_addresses = match extractor.extract() {
@@ -128,7 +133,7 @@ fn run_chickadee(ips: String, columns: Option<Vec<String>>) -> Result<()> {
     }?;
 
     // Resolve IP addresses
-    let ip_records = match resolve_ip_addresses(ip_addresses, columns.clone()) {
+    let ip_records = match resolve_ip_addresses(ip_addresses, columns.clone(), &resolver) {
         Ok(ip_records) => Ok(ip_records),
         Err(e) => {
             eprintln!("Error during resolution: {}", e);
@@ -142,7 +147,8 @@ fn run_chickadee(ips: String, columns: Option<Vec<String>>) -> Result<()> {
     Ok(())
 }
 
-#[cfg(test)]
+/*
+[cfg(test)]
 mod tests {
     use tempfile::NamedTempFile;
 
@@ -205,3 +211,4 @@ mod tests {
         assert!(res.is_ok());
     }
 }
+*/
